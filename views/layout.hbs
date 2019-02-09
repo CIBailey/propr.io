@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,27 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
+
+
+  <nav>
+    {{!-- {{#if currentUser}}
+    <b>{{currentUser.name}}</b> --}}
+    <a href="/properties">Properties</a>
+    <a href="/tenants">Tenants</a>
+    {{!-- <a href="/messages">Messages</a> --}}
+  </nav>
+
+  {{!-- {{else}} --}}
+  {{!-- NOTHING SHOWS UP IF USER NOT LOGGED IN --}}
+  {{!-- {{/if}} --}}
+
+  {{!-- {{{body}}} --}}
 
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>

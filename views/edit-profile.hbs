@@ -1,0 +1,34 @@
+{{!-- // title = proprio --}}
+<h1>{{title}}</h1>
+
+<h2>Edit Profile</h2>
+{{!-- route to the middle path request --}}
+
+{{#each userArray}}
+
+<form action="/process-edit" method="POST">
+  <label>
+
+    First Name:
+    <input type="text" name="firstName" value="{{this.firstName}}" />
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" name="lastName" value="{{this.lastName}}" />
+  </label>
+
+
+  <label>
+    Email:
+    <input type="email" name="email" value="{{this.email}}" />
+  </label>
+
+  <label>
+    Profile Photo:
+    <input type="text" name="profilePhoto" placeholder="http://example.com/room.jpg/" required />
+
+  </label>
+
+  <button>Get started with your properties!</button>
+</form>

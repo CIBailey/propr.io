@@ -1,0 +1,14 @@
+<h2>Tennants</h2>
+
+{{!-- {{>flash_messages}} --}}
+
+<ul>
+  {{#each tenantArray}}
+  <li>
+
+    <h3>{{this.name}}</h3>
+    <img src="{{this.pictureUrl}}" />
+
+  </li>
+  {{/each}}
+</ul>

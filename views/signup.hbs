@@ -1,0 +1,34 @@
+{{!-- // title = proprio --}}
+<h1>{{title}}</h1>
+
+<h2>Sign Up</h2>
+{{!-- route to the middle path request --}}
+<form action="/process-signup" method="POST">
+
+  First Name:
+  <label>
+    <input type="text" name="firstName" placeholder="Jane" required />
+  </label>
+  <label>
+    Last Name:
+    <input type="text" name="lastName" placeholder="Doe" required />
+  </label>
+  <label>
+    Email:
+    <input type="email" name="email" placeholder="Log In" required />
+  </label>
+
+  <label>
+    Password:
+    <input type="password" name="originalPassword" placeholder="Log In" required />
+
+  </label>
+
+  <label>
+    Profile Photo:
+    <input type="text" name="profilePhoto" placeholder="http://example.com/room.jpg/" required /> --}}
+
+  </label>
+
+  <button>Get started with your properties!</button>
+</form>
