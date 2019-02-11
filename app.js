@@ -13,6 +13,9 @@ const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
 
+//I put the code for the passport-setup here - nadjie
+require("./config/passport-setup.js");
+
 mongoose
   .connect("mongodb://localhost/proprio", { useNewUrlParser: true })
   .then(x => {
@@ -47,10 +50,34 @@ app.use(
   })
 );
 
+// we will need partilas later so I put the code here - nadjie
+// hbs.registerPartials(path.join(__dirname, "views", "partials"));
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
+
+// Express app to create SESSION - nadjie
+app.use(
+  session({
+    saveUninitialized: true,
+    resave: true,
+    secret: "????", // need to see what string to put here
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+  })
+);
+
+// Passport to use in our routes - nadjie
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+app.use((req, res, next) => {
+  req.flash();
+  res.locals.messages = req.flash();
+  res.loclas.currentUser = req.user;
+  next();
+});
 
 // default value for title local
 app.locals.title = "propr.io";
@@ -59,6 +86,15 @@ app.locals.title = "propr.io";
 const index = require("./routes/index");
 app.use("/", index);
 
-// const auth = require("")
+// all our new routes go here
+
+const auth = require("./routes/form-route.js");
+app.use("/", auth); // need to check this
+
+const list = require("./routes/list-route.js");
+app.use("/", list);
+
+const other = require("./routes/other-route.js");
+app.use("/", other);
 
 module.exports = app;

@@ -40,7 +40,7 @@ router.post("/process-login", (req, res, next) => {
 
 /////////////////////////////////////////////////////// SIGNUP
 
-/* GET singup page */
+/* GET signup page */
 router.get("/signup", (req, res, next) => {
   res.render("signup.hbs");
 });
