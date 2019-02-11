@@ -1,6 +1,3 @@
-{{!-- // title = proprio --}}
-<h1>{{title}}</h1>
-
 <h2>Sign Up</h2>
 {{!-- route to the middle path request --}}
 <form action="/process-signup" method="POST" enctype="multipart/form-data">
@@ -13,7 +10,6 @@
     Last Name:
     <input type="text" name="lastName" placeholder="Doe" required />
   </label>
-  // select dots
   <label>
     Role:
     <div class="field-body">
@@ -37,12 +33,16 @@
     <input type="password" name="originalPassword" placeholder="Log In" required />
   </label>
 
-  {{!-- In order to stle this, you need to create an object that overlays this --}}
+  <label>
+    Phone:
+    <input type="string" name="phone" placeholder="" required />
+  </label>
+
   <label>
     Profile Photo:
     <input type="file" name="profilePhoto" required />
 
   </label>
 
-  <button>Get started with your properties!</button>
+  <button>Get started!</button>
 </form>
