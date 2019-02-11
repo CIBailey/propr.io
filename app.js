@@ -8,6 +8,10 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+const session = require("express-session");
+const flash = require("connect-flash");
+const MongoStore = require("connect-mongo")(session);
+const passport = require("passport");
 
 mongoose
   .connect("mongodb://localhost/proprio", { useNewUrlParser: true })
@@ -51,7 +55,10 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = "propr.io";
 
+///add all routes to this area
 const index = require("./routes/index");
 app.use("/", index);
+
+// const auth = require("")
 
 module.exports = app;

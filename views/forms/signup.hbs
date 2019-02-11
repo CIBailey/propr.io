@@ -3,7 +3,7 @@
 
 <h2>Sign Up</h2>
 {{!-- route to the middle path request --}}
-<form action="/process-signup" method="POST">
+<form action="/process-signup" method="POST" enctype="multipart/form-data">
 
   First Name:
   <label>
@@ -13,6 +13,20 @@
     Last Name:
     <input type="text" name="lastName" placeholder="Doe" required />
   </label>
+  // select dots
+  <label>
+    Role:
+    <div class="field-body">
+      <div class="control">
+        <label class="radio">
+          <input type="radio" name="tenant">
+        </label>
+        <label class="radio">
+          <input type="radio" name="landlord">
+          Female
+        </label>
+      </div>
+  </label>
   <label>
     Email:
     <input type="email" name="email" placeholder="Log In" required />
@@ -21,12 +35,12 @@
   <label>
     Password:
     <input type="password" name="originalPassword" placeholder="Log In" required />
-
   </label>
 
+  {{!-- In order to stle this, you need to create an object that overlays this --}}
   <label>
     Profile Photo:
-    <input type="text" name="profilePhoto" placeholder="http://example.com/room.jpg/" required /> --}}
+    <input type="file" name="profilePhoto" required />
 
   </label>
 

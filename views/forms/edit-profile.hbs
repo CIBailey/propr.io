@@ -6,7 +6,7 @@
 
 {{#each userArray}}
 
-<form action="/process-edit" method="POST">
+<form action="/process-edit" method="POST" enctype="multipart/form-data">
   <label>
 
     First Name:
@@ -26,7 +26,7 @@
 
   <label>
     Profile Photo:
-    <input type="text" name="profilePhoto" placeholder="http://example.com/room.jpg/" required />
+    <input type="file" name="profilePhoto" required />
 
   </label>
 
