@@ -56,7 +56,7 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 app.locals.title = "propr.io";
 
 ///add all routes to this area
-const index = require("./routes/index");
+const index = require("./routes/other-route");
 app.use("/", index);
 
 // const auth = require("")

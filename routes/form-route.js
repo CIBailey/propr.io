@@ -4,20 +4,7 @@ const Tenant = require("../models/tenant-model.js");
 const Property = require("../models/property-model.js");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const fileUploader = require("../config/file-upoad.js");
-
-/* GET home page */
-router.get("/", (req, res, next) => {
-  res.render("index");
-});
-
-router.get("/properties", (req, res, next) => {
-  res.render("properties.hbs");
-});
-
-router.get("/tenants", (req, res, next) => {
-  res.render("tenants.hbs");
-});
+const fileUploader = require("../config/file-upload.js");
 
 /////////////////////////////////////////////////////// LOGIN
 // login process - routes to the properties page, otherwise to index

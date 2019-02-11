@@ -1,1 +1,41 @@
-{{!-- <form action="/process-CHFDJLSFHKJBSDJ" method="POST" enctype="multipart/form-data"> --}}
+<h2>Add Property</h2>
+
+<form action="/process-add-property" method="POST" enctype="multipart/form-data">
+  Name:
+  <label>
+    <input type="text" name="name" required />
+  </label>
+  Description:
+  <label>
+    <input type="text" name="description" placeholder="Sunny flat in center ville" required />
+  </label>
+  {{!-- amenities --}}
+  <input type="checkbox" name="amenities" value="electricity"><span>Electricity</span>
+  <input type="checkbox" name="amenities" value="heating"><span>Heating</span>
+  <input type="checkbox" name="amenities" value="water"><span>Water</span>
+  <input type="checkbox" name="amenities" value="elevator"><span>Elevator</span>
+  <input type="checkbox" name="amenities" value="garage"><span>Garage</span>
+  <input type="checkbox" name="amenities" value="kitchenAppliances"><span>Kitchen Appliances</span>
+  <input type="checkbox" name="amenities" value="airConditioning"><span>Air Conditioning</span>
+  Address:
+  <br>
+
+  <label>
+    Street
+    <input type="text" name="address.street" required />
+  </label>
+  <label>
+    State
+    <input type="text" name="address.state" required />
+  </label>
+  <label>
+    Zipcode
+    <input type="text" name="address.zipcode" required />
+  </label>
+  <label>
+    Country
+    <input type="text" name="address.country" required />
+  </label>
+
+  <button>Add Property</button>
+</form>

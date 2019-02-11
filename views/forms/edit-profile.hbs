@@ -1,27 +1,42 @@
-{{!-- // title = proprio --}}
-<h1>{{title}}</h1>
-
 <h2>Edit Profile</h2>
 {{!-- route to the middle path request --}}
+<form action="/{{userItem._id}}/process-edit-profile" method="POST" enctype="multipart/form-data">
 
-{{#each userArray}}
-
-<form action="/process-edit" method="POST" enctype="multipart/form-data">
+  First Name:
   <label>
-
-    First Name:
-    <input type="text" name="firstName" value="{{this.firstName}}" />
+    <input type="text" name="firstName" value="{{userItem.firstName}}" required />
   </label>
-
   <label>
     Last Name:
-    <input type="text" name="lastName" value="{{this.lastName}}" />
+    <input type="text" name="lastName" value="{{userItem.lastName}}" required />
   </label>
-
-
+  <label>
+    Role:
+    <div class="field-body">
+      <div class="control">
+        <label class="radio">
+          <input type="radio" value="Tenant" despace />
+          Tenant
+        </label>
+        <label class="radio">
+          <input type="radio" value="Landlord" despace />
+          Landlord
+        </label>
+      </div>
+  </label>
   <label>
     Email:
-    <input type="email" name="email" value="{{this.email}}" />
+    <input type="email" name="email" value="{{userItem.email}}" required />
+  </label>
+
+  <label>
+    Password:
+    <input type="password" name="originalPassword" value="{{userItem.password}}" required />
+  </label>
+
+  <label>
+    Phone:
+    <input type="string" name="phone" value="{{userItem.phone}}" required />
   </label>
 
   <label>
@@ -30,5 +45,5 @@
 
   </label>
 
-  <button>Get started with your properties!</button>
+  <button>Update</button>
 </form>
