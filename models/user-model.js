@@ -10,7 +10,7 @@ const userSchema = new Schema(
     encryptedPassword: { type: String, required: true },
     role: { type: String, enum: ["tenant", "landlord"] },
     // phone: { },
-    profilePhoto: { type: String, required: true }
+    profilePhoto: { type: String }
   },
   {
     // additional settings for Schema class here
