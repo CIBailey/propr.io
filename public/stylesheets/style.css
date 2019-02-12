@@ -41,9 +41,22 @@ ul li a {
   color: tomato; }
 
 /* -------------------FOOTER--------------------------- */
+footer {
+  position: relative;
+  height: 100px;
+  margin-top: 250px; }
+
+footer p {
+  position: absolute;
+  bottom: 0;
+  margin-left: 100px; }
+
 footer img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  object-fit: contain; }
+  height: auto; }
 
 /* -------------------LANDING-PAGE / INDEX--------------------------- */
 .body-index {
@@ -136,6 +149,34 @@ form h6 {
 .card {
   box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1); }
 
+.card-img {
+  padding: 0;
+  object-fit: cover; }
+
+.card {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  margin-bottom: 30px; }
+
+.container h3 {
+  margin-top: 50px;
+  margin-bottom: 20px; }
+
+.card-text .fa-map-marker-alt {
+  padding-right: 4px; }
+
+p.p-address {
+  color: #447ce8; }
+
+.head-room-text {
+  margin-top: 170px; }
+
+.row .btn-add-prop {
+  margin-top: 35px;
+  right: 0; }
+
+/*---------------------------*/
 @media (max-width: 575.98px) {
   .navbar-light .navbar-brand {
     font-size: 50px;
