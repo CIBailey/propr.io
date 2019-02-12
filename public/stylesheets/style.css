@@ -1,82 +1,68 @@
 * {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /* -------------------NAVS--------------------------- */
 /* NAV */
 nav {
-  background-color: #f9f9f9;
-}
+  background-color: #f9f9f9; }
 
 .navbar-light .navbar-nav .nav-link {
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
-  color: black;
-}
+  color: black; }
 
 .navbar-light .navbar-brand {
   color: black;
   font-size: 50px;
-  padding-left: 150px;
-}
+  padding-left: 150px; }
 
 nav img {
-  margin-top: 20px;
-}
+  margin-top: 20px; }
 
 nav .prop-blue {
-  border-bottom: 2px solid #447ce8;
-}
+  border-bottom: 2px solid #447ce8; }
 
 .avatar {
   vertical-align: middle;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  margin: 5px 10px;
-}
+  margin: 5px 10px; }
 
 .dropdown-menu {
-  min-width: 5rem;
-}
+  min-width: 5rem; }
 
 .dropdown .btn {
-  padding: 0;
-}
+  padding: 0; }
 
 ul li a {
-  color: tomato;
-}
+  color: tomato; }
 
 /* -------------------FOOTER--------------------------- */
 footer {
   position: relative;
   height: 100px;
-  margin-top: 250px;
-}
+  margin-top: 250px; }
 
 footer p {
   position: absolute;
   bottom: 0;
-  margin-left: 100px;
-}
+  margin-left: 100px; }
 
 footer img {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: auto;
-}
+  height: auto; }
 
 /* -------------------LANDING-PAGE / INDEX--------------------------- */
 .body-index {
   background-image: url(./images/home-landing.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
-}
+  background-size: cover; }
 
 .round {
   background-color: rgba(255, 255, 255, 0.2);
@@ -84,14 +70,12 @@ footer img {
   padding: 8px 20px;
   margin-right: 50px;
   margin-left: 15px;
-  opacity: 1;
-}
+  opacity: 1; }
 
 #landing-page {
   text-align: center;
   color: white;
-  padding-top: 50px;
-}
+  padding-top: 50px; }
 
 .overlay {
   position: fixed;
@@ -103,39 +87,32 @@ footer img {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: -1;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .index {
   margin-top: 10%;
   color: white;
-  font-size: 40px;
-}
+  font-size: 40px; }
 
 /* -------------------ADD PROPERTY PAGE--------------------------- */
 form {
   background-color: #f9f9f9;
   padding: 20px 40px;
   margin-bottom: 20px;
-  border-radius: 10px;
-}
+  border-radius: 10px; }
 
 form h6 {
   margin-top: 10px;
-  padding-bottom: 20px;
-}
+  padding-bottom: 20px; }
 
 .container .cancel {
-  padding-left: 30px;
-}
+  padding-left: 30px; }
 
 .container h6 {
-  margin-top: 40px;
-}
+  margin-top: 40px; }
 
 .head-room {
-  margin-top: 40px;
-}
+  margin-top: 40px; }
 
 .pastille {
   margin-right: 8px;
@@ -144,22 +121,19 @@ form h6 {
   border-radius: 500%;
   color: #fff;
   padding: 5px 10px;
-  font-size: 0.8em;
-}
+  font-size: 0.8em; }
 
 .btn-primary {
   color: white;
   background-color: #447ce8;
   border-color: #447ce8;
   margin-top: 20px;
-  border-radius: 100px;
-}
+  border-radius: 100px; }
 
 .btn-primary:hover {
   color: white;
   background-color: #447ce8;
-  border-color: #447ce8;
-}
+  border-color: #447ce8; }
 
 /* -------------------DASHBOARD / HOME-PAGE--------------------------- */
 .btn-group-lg > .btn,
@@ -167,66 +141,52 @@ form h6 {
   padding: 0.5rem 3rem;
   font-size: 1.25rem;
   line-height: 1.5;
-  border-radius: 30px;
-}
+  border-radius: 30px; }
 
 .body-dashboard {
-  background-color: #fff;
-}
+  background-color: #fff; }
 
 .card {
-  box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);
-}
+  box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1); }
 
 .card-img {
   padding: 0;
-  object-fit: cover;
-}
+  object-fit: cover; }
 
 .card {
   display: flex;
   flex-direction: row;
   height: 300px;
-  margin-bottom: 30px;
-}
+  margin-bottom: 30px; }
 
 .container h3 {
   margin-top: 50px;
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 .card-text .fa-map-marker-alt {
-  padding-right: 4px;
-}
+  padding-right: 4px; }
 
 p.p-address {
-  color: #447ce8;
-}
+  color: #447ce8; }
 
 .head-room-text {
-  margin-top: 170px;
-}
+  margin-top: 170px; }
 
 .row .btn-add-prop {
   margin-top: 35px;
-  right: 0;
-}
+  right: 0; }
 
 /*---------------------------*/
 @media (max-width: 575.98px) {
   .navbar-light .navbar-brand {
     font-size: 50px;
-    padding-left: 0;
-  }
+    padding-left: 0; }
   .body-index {
     background-image: url(./images/home-landing.jpg);
     background-repeat: no-repeat;
     width: 100%;
-    height: auto;
-  }
+    height: auto; }
   footer p {
-    margin-left: 50px;
-  }
-}
+    margin-left: 50px; } }
 
 /*# sourceMappingURL=style.css.map */
