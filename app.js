@@ -84,8 +84,6 @@ app.use((req, res, next) => {
 app.locals.title = "propr.io";
 
 ///add all routes to this area
-const index = require("./routes/other-route");
-app.use("/", index);
 
 // all our new routes go here
 

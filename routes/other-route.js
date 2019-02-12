@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 const fileUploader = require("../config/file-upload.js");
 
 router.get("/", (req, res, next) => {
-  res.render("other/index");
+  res.render("index.hbs");
 });
 
 module.exports = router;
