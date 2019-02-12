@@ -29,7 +29,7 @@ router.post("/process-login", (req, res, next) => {
 
 /* GET signup page */
 router.get("/signup", (req, res, next) => {
-  res.render("signup.hbs");
+  res.render("forms/signup.hbs");
 });
 
 // upload multiple of files use fileUploader.array
