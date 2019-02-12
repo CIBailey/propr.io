@@ -13,12 +13,12 @@ router.post("/process-login", (req, res, next) => {
   User.findOne({ email: { $eq: email } })
     .then(userDoc => {
       if (!userDoc) {
-        res.redirect("/index");
+        res.redirect("/signup");
         return;
       }
       const { encryptedPassword } = userDoc;
       if (!bcrypt.compareSync(originalPassword, encryptedPassword)) {
-        res.redirect("/index");
+        res.redirect("/");
       }
       res.redirect("/properties");
     })
@@ -35,7 +35,7 @@ router.get("/signup", (req, res, next) => {
 // upload multiple of files use fileUploader.array
 router.post(
   "/process-signup",
-  fileUploader.single("pictureUpload"),
+  // fileUploader.single("pictureUpload"),
   (req, res, next) => {
     const {
       firstName,
@@ -49,16 +49,16 @@ router.post(
     // const host = req.user._id
 
     //////////cloudinary
-    console.log("File upload is ALWAYS in req.file OR req.files", req.file);
+    // console.log("File upload is ALWAYS in req.file OR req.files", req.file);
     //multer puts all file info into it got from the service into req.file
-    const profilePhoto = req.file.secure + url;
-
-    if (!originalPassword) {
-      res.redirect("/signup");
-      return;
-    }
+    // const profilePhoto = req.file.secure + url;
     const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
-    User.create({ firstName, lastName, email, encryptedPassword, profilePhoto })
+
+    // if (!originalPassword) {
+    //   res.redirect("/");
+    //   return;
+    // }
+    User.create({ firstName, lastName, email, encryptedPassword })
       .then(() => {
         console.log("user created");
         res.redirect("/properties");

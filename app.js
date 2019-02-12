@@ -75,7 +75,7 @@ app.use(flash());
 app.use((req, res, next) => {
   req.flash();
   res.locals.messages = req.flash();
-  res.loclas.currentUser = req.user;
+  res.locals.currentUser = req.user;
   next();
 });
 
