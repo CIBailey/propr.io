@@ -8,9 +8,9 @@ const userSchema = new Schema(
     lastName: { type: String, required: true },
     email: { type: String, required: true },
     encryptedPassword: { type: String, required: true },
-    role: { type: String, enum: ["tenant", "landlord"] },
+    role: { type: String, enum: ["tenant", "landlord"], required: true },
     // phone: { },
-    profilePhoto: { type: String }
+    profilePhoto: { type: String, required: true }
   },
   {
     // additional settings for Schema class here
