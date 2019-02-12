@@ -64,7 +64,7 @@ app.use(
   session({
     saveUninitialized: true,
     resave: true,
-    secret: "????", // need to see what string to put here
+    secret: process.env.EXPRESS_APP_SECRET,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
