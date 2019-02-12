@@ -44,14 +44,14 @@ router.post(
 
     if (confirmPassword !== userpass) {
       res.render("forms/signup.hbs", {
-        errorMessage: "Please check the spelling of your password"
+        errorMessage: "Please check the spelling of your password."
       });
       return;
     }
 
     if (useremail === "" || userpass === "") {
       res.render("forms/signup.hbs", {
-        errorMessage: "Please fill all form fields to sign up"
+        errorMessage: "Please fill all form fields to sign up."
       });
       return;
     }
@@ -59,7 +59,7 @@ router.post(
     User.findOne({ email: useremail }, "email", (err, user) => {
       if (user !== null) {
         res.render("forms/signup.hbs", {
-          errorMessage: "This email already exists in our system"
+          errorMessage: "This email already exists in our system."
         });
         return;
       }
@@ -90,3 +90,8 @@ router.post(
 );
 
 module.exports = router;
+
+/*  ADD PROPERTY page */
+router.get("/add-property", (req, res, next) => {
+  res.render("forms/add-property.hbs");
+});
