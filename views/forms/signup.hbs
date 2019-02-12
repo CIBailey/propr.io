@@ -1,49 +1,88 @@
-<h2>Sign Up</h2>
-{{!-- route to the middle path request --}}
-<form action="/process-signup" method="POST" enctype="multipart/form-data">
+<!DOCTYPE html>
+<html lang="en">
 
-  First Name:
-  <label>
-    <input type="text" name="firstName" placeholder="Jane" required />
-  </label>
-  <label>
-    Last Name:
-    <input type="text" name="lastName" placeholder="Doe" required />
-  </label>
-  <label>
-    Role:
-    <div class="field-body">
-      <div class="control">
-        <label class="radio">
-          <input type="radio" name="tenant">
-          Tenant
-        </label>
-        <label class="radio">
-          <input type="radio" name="landlord">
-          Landlord
-        </label>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Sign Up</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<div class="container head-room">
+  <form action="/process-signup" method="POST" enctype="multipart/form-data">
+    <h6>Create your profile <a class="cancel" href="/">Cancel</a></h6>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputFirstName">First name</label>
+        <input type="text" class="form-control" id="inputFirstName" name="firstName" placeholder="First name here" />
       </div>
-  </label>
-  <label>
-    Email:
-    <input type="email" name="email" placeholder="Log In" required />
-  </label>
+      <div class="form-group col-md-6">
+        <label for="inputLastName">Last name</label>
+        <input type="text" class="form-control" id="inputLastName" name="lastName" placeholder="Last name here" />
+      </div>
+    </div>
 
-  <label>
-    Password:
-    <input type="password" name="originalPassword" placeholder="Log In" required />
-  </label>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email here" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPhone">Phone</label>
+        <input type="number" class="form-control" id="inputPhone" name="phone" placeholder="+33" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputPicture">Profile picture</label>
+        <input type="file" name="profilePhoto" class="form-control" id="inputPicture"
+          placeholder="Need to find a way to upload a picture from computer or phone" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputRole">Role</label>
+        <select id="inputRole" class="form-control">
+          <option selected>Landlord</option>
+          <option>Tenant</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" name="originalPassword"
+          placeholder="Password here" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputConfirmPassword">Confirm password</label>
+        <input type="password" class="form-control" id="inputConfirmPassword" name="originalPassword"
+          placeholder="Confirm Password here" />
+      </div>
+    </div>
 
-  <label>
-    Phone:
-    {{!-- <input type="string" name="phone" placeholder="" required /> --}}
-  </label>
+    <a class="btn btn-primary" role="button">
+      Submit
+    </a>
+  </form>
 
-  <label>
-    Profile Photo:
-    {{!-- <input type="file" name="profilePhoto" /> --}}
+  <footer class="container-fluid">
+    <img src="./images/city-skyline.png" />
+    <p>©2019 Propr.io. All rights reserved.</p>
+  </footer>
 
-  </label>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  </body>
 
-  <button>Get started!</button>
-</form>
+</html>

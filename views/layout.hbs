@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
@@ -16,8 +16,8 @@
 <body class="body-dashboard">
   <header>
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="#"><img src="./images/logo-proprio-noir.png" width="auto" height="40" class="d-inline-block align-top"
-          alt="" /></a>
+      <a class="navbar-brand" href="#"><img src="./images/logo-proprio-noir.png" width="auto" height="40"
+          class="d-inline-block align-top" alt="" /></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,42 +30,27 @@
           <a class="nav-item nav-link" href="#">Tenants</a>
           <a class="nav-item nav-link" href="#">Messages</a>
           {{else}}
-          <a href="/signup">Sign Up</a>
-          <a href="/login">Log In</a>
+          {{!-- NOTHNG HERE --}}
           {{/if}}
         </div>
       </div>
     </nav>
   </header>
 
-  {{!-- <nav> --}}
-    {{!-- {{#if currentUser}}
-    <b>{{currentUser.name}}</b> --}}
-    {{!-- <a href="/properties">Properties</a>
-    <a href="/tenants">Tenants</a> --}}
-    {{!-- <a href="/messages">Messages</a> --}}
-    {{!-- </nav> --}}
-
-  {{!-- {{else}} --}}
-  {{!-- NOTHING SHOWS UP IF USER NOT LOGGED IN --}}
-  {{!-- {{/if}} --}}
-
-  {{!-- {{{body}}} --}}
 
   {{{body}}}
 
 
-  <footer class="container-fluid">
-    <img src="./images/city-skyline.png" />
-    <p>©2019 Propr.io. All rights reserved.</p>
-  </footer>
 
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
     crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
   <script src="/javascripts/script.js"></script>
 </body>
