@@ -1,12 +1,199 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00b7ff;
+/* -------------------NAVS--------------------------- */
+
+/* NAV */
+nav {
+  background-color: #f9f9f9;
 }
 
-label {
-  display: block;
+.navbar-light .navbar-nav .nav-link {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+}
+
+.navbar-light .navbar-brand {
+  color: black;
+  font-size: 50px;
+  padding-left: 150px;
+}
+
+nav img {
+  margin-top: 20px;
+}
+
+nav .prop-blue {
+  border-bottom: 2px solid #447ce8;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 5px 10px;
+}
+
+.dropdown-menu {
+  min-width: 5rem;
+}
+
+.dropdown .btn {
+  padding: 0;
+}
+
+ul li a {
+  color: tomato;
+}
+
+/* -------------------FOOTER--------------------------- */
+
+footer {
+  position: relative;
+  height: 100px;
+  margin-top: 250px;
+}
+
+footer p {
+  position: absolute;
+  bottom: 0;
+  margin-left: 100px;
+}
+
+footer img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+/* -------------------LANDING-PAGE / INDEX--------------------------- */
+.body-index {
+  background-image: url(./images/home-landing.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.round {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 8px 20px;
+  margin-right: 50px;
+  margin-left: 15px;
+  opacity: 1;
+}
+
+#landing-page {
+  text-align: center;
+  color: white;
+  padding-top: 50px;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  cursor: pointer;
+}
+
+.index {
+  margin-top: 10%;
+  color: white;
+  font-size: 40px;
+}
+
+/* -------------------ADD PROPERTY PAGE--------------------------- */
+
+form {
+  background-color: #f9f9f9;
+  padding: 20px 40px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+form h6 {
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+
+.container .cancel {
+  padding-left: 30px;
+}
+
+.container h6 {
+  margin-top: 40px;
+}
+
+.head-room {
+  margin-top: 40px;
+}
+
+.pastille {
+  margin-right: 8px;
+  vertical-align: middle;
+  background: #447ce8;
+  border-radius: 500%;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 0.8em;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #447ce8;
+  border-color: #447ce8;
+  margin-top: 20px;
+  border-radius: 100px;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: #447ce8;
+  border-color: #447ce8;
+}
+
+/* -------------------DASHBOARD / HOME-PAGE--------------------------- */
+
+.btn-group-lg > .btn,
+.btn-lg {
+  padding: 0.5rem 3rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 30px;
+}
+
+.body-dashboard {
+  background-color: #fff;
+}
+
+.card {
+  box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 575.98px) {
+  .navbar-light .navbar-brand {
+    font-size: 50px;
+    padding-left: 0;
+  }
+  .body-index {
+    background-image: url(./images/home-landing.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+  }
+  footer p {
+    margin-left: 50px;
+  }
 }
