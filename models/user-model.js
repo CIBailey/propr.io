@@ -8,8 +8,8 @@ const userSchema = new Schema(
     lastName: { type: String, required: true },
     email: { type: String, required: true },
     encryptedPassword: { type: String, required: true },
-    role: { type: String, enum: ["tenant", "landlord"], required: true },
-    // phone: { },
+    role: { type: String, enum: ["Tenant", "Landlord"], required: true },
+    phone: { type: Number, required: true },
     profilePhoto: { type: String, required: true }
   },
   {

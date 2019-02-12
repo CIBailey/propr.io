@@ -4,6 +4,7 @@ const Tenant = require("../models/tenant-model.js");
 const Property = require("../models/property-model.js");
 const router = express.Router();
 const bcrypt = require("bcrypt");
+const bcryptSalt = 10;
 const fileUploader = require("../config/file-upload.js");
 
 /////////////////////////////////////////////////////// LOGIN
@@ -32,40 +33,59 @@ router.get("/signup", (req, res, next) => {
   res.render("forms/signup.hbs");
 });
 
-// upload multiple of files use fileUploader.array
 router.post(
   "/process-signup",
   fileUploader.single("profilePhoto"),
   (req, res, next) => {
-    const {
-      firstName,
-      lastName,
-      email,
-      originalPassword,
-      confirmPassword,
-      role
-      //do not include the profile photo in object
-    } = req.body;
+    const { firstName, lastName, confirmPassword, role, phone } = req.body;
 
-    console.log(req.body);
-    //////////cloudinary
-    // console.log("File upload is ALWAYS in req.file OR req.files", req.file);
-    //multer puts all file info into it got from the service into req.file
-    const profilePhoto = req.file.secure_url;
-    const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
-    // if (confirmPassword !=== originalPassword) {
-    //   ///flash
+    var useremail = req.body.email;
+    var userpass = req.body.originalPassword;
 
-    //   res.redirect("/");
-    //   return;
-    // }
-    User.create({ firstName, lastName, email, encryptedPassword, profilePhoto })
-      .then(() => {
-        console.log("user created");
-        res.redirect("/properties");
-      })
-      .catch(err => next(err));
-    console.log("user fail");
+    if (confirmPassword !== userpass) {
+      res.render("forms/signup.hbs", {
+        errorMessage: "Please check the spelling of your password"
+      });
+      return;
+    }
+
+    if (useremail === "" || userpass === "") {
+      res.render("forms/signup.hbs", {
+        errorMessage: "Please fill all form fields to sign up"
+      });
+      return;
+    }
+
+    User.findOne({ email: useremail }, "email", (err, user) => {
+      if (user !== null) {
+        res.render("forms/signup.hbs", {
+          errorMessage: "This email already exists in our system"
+        });
+        return;
+      }
+
+      const profilePhoto = req.file.secure_url;
+      var salt = bcrypt.genSaltSync(bcryptSalt);
+      var encryptedPassword = bcrypt.hashSync(userpass, salt);
+
+      var newUser = User({
+        firstName,
+        lastName,
+        email: useremail,
+        encryptedPassword,
+        role,
+        phone,
+        profilePhoto
+      });
+
+      newUser
+        .save()
+        .then(() => {
+          console.log("user created");
+          res.redirect("/properties");
+        })
+        .catch(err => next(err));
+    });
   }
 );
 
