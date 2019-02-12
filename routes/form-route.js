@@ -9,21 +9,34 @@ const fileUploader = require("../config/file-upload.js");
 
 /////////////////////////////////////////////////////// LOGIN
 // login process - routes to the properties page, otherwise to index
+
+router.get("/", (req, res, next) => {
+  res.render("index.hbs");
+});
+
 router.post("/process-login", (req, res, next) => {
-  const { email, originalPassword } = req.body;
-  User.findOne({ email: { $eq: email } })
-    .then(userDoc => {
-      if (!userDoc) {
-        res.redirect("/signup");
-        return;
+  var useremail = req.body.email;
+  var userpass = req.body.encryptedPassword;
+
+  if (useremail === "" || userpass === "") {
+    res.render("index.hbs", {
+      errorMessage: "Indicate username and password to sign in"
+    });
+    return;
+  }
+
+  User.findOne({ useremail }, "_id useremail password", (err, user) => {
+    if (err || !user) {
+      res.render("index.hbs", { errorMessage: "This account doesn't exist" });
+    } else {
+      if (bcrypt.compareSync(userpass, user.password)) {
+        req.session.currentUser = user;
+        res.redirect("/properties");
+      } else {
+        res.render("index.hbs", { errorMessage: "Incorrect password" });
       }
-      const { encryptedPassword } = userDoc;
-      if (!bcrypt.compareSync(originalPassword, encryptedPassword)) {
-        res.redirect("/");
-      }
-      res.redirect("/properties");
-    })
-    .catch(err => next(err));
+    }
+  });
 });
 
 /////////////////////////////////////////////////////// SIGNUP
@@ -90,6 +103,24 @@ router.post(
 );
 
 module.exports = router;
+
+/////////////////logout
+
+router.get("/process-logout", (req, res, next) => {
+  if (!req.session.currentUser) {
+    req.flash("success", "Logged out successfully! 🙋‍");
+    res.redirect("/");
+    return;
+  }
+
+  req.session.destroy(err => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/");
+    }
+  });
+});
 
 /*  ADD PROPERTY page */
 router.get("/add-property", (req, res, next) => {
