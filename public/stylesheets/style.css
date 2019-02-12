@@ -41,22 +41,9 @@ ul li a {
   color: tomato; }
 
 /* -------------------FOOTER--------------------------- */
-footer {
-  position: relative;
-  height: 100px;
-  margin-top: 250px; }
-
-footer p {
-  position: absolute;
-  bottom: 0;
-  margin-left: 100px; }
-
 footer img {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: auto; }
+  object-fit: contain; }
 
 /* -------------------LANDING-PAGE / INDEX--------------------------- */
 .body-index {
