@@ -53,10 +53,12 @@ router.post(
     //multer puts all file info into it got from the service into req.file
     const profilePhoto = req.file.secure_url;
     const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
-    if (!originalPassword) {
-      res.redirect("/");
-      return;
-    }
+    // if (confirmPassword !=== originalPassword) {
+    //   ///flash
+
+    //   res.redirect("/");
+    //   return;
+    // }
     User.create({ firstName, lastName, email, encryptedPassword, profilePhoto })
       .then(() => {
         console.log("user created");
