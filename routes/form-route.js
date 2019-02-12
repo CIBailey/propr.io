@@ -35,30 +35,29 @@ router.get("/signup", (req, res, next) => {
 // upload multiple of files use fileUploader.array
 router.post(
   "/process-signup",
-  // fileUploader.single("pictureUpload"),
+  fileUploader.single("profilePhoto"),
   (req, res, next) => {
     const {
       firstName,
       lastName,
       email,
-      originalPassword
+      originalPassword,
+      confirmPassword,
+      role
       //do not include the profile photo in object
-      // profilePhoto
     } = req.body;
 
-    // const host = req.user._id
-
+    console.log(req.body);
     //////////cloudinary
     // console.log("File upload is ALWAYS in req.file OR req.files", req.file);
     //multer puts all file info into it got from the service into req.file
-    // const profilePhoto = req.file.secure + url;
+    const profilePhoto = req.file.secure_url;
     const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
-
-    // if (!originalPassword) {
-    //   res.redirect("/");
-    //   return;
-    // }
-    User.create({ firstName, lastName, email, encryptedPassword })
+    if (!originalPassword) {
+      res.redirect("/");
+      return;
+    }
+    User.create({ firstName, lastName, email, encryptedPassword, profilePhoto })
       .then(() => {
         console.log("user created");
         res.redirect("/properties");
