@@ -7,41 +7,8 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const fileUploader = require("../config/file-upload.js");
 
-/////////////////////////////////////////////////////// LOGIN
-// login process - routes to the properties page, otherwise to index
+/* SIGNUP SETUP */
 
-router.get("/", (req, res, next) => {
-  res.render("index.hbs");
-});
-
-router.post("/process-login", (req, res, next) => {
-  var useremail = req.body.email;
-  var userpass = req.body.encryptedPassword;
-
-  if (useremail === "" || userpass === "") {
-    res.render("index.hbs", {
-      errorMessage: "Indicate username and password to sign in"
-    });
-    return;
-  }
-
-  User.findOne({ useremail }, "_id useremail password", (err, user) => {
-    if (err || !user) {
-      res.render("index.hbs", { errorMessage: "This account doesn't exist" });
-    } else {
-      if (bcrypt.compareSync(userpass, user.password)) {
-        req.session.currentUser = user;
-        res.redirect("/properties");
-      } else {
-        res.render("index.hbs", { errorMessage: "Incorrect password" });
-      }
-    }
-  });
-});
-
-/////////////////////////////////////////////////////// SIGNUP
-
-/* GET signup page */
 router.get("/signup", (req, res, next) => {
   res.render("forms/signup.hbs");
 });
@@ -94,13 +61,46 @@ router.post(
       newUser
         .save()
         .then(() => {
-          console.log("user created");
-          res.redirect("/properties");
+          console.log("User created");
+          res.redirect("/login");
         })
         .catch(err => next(err));
     });
   }
 );
+
+/* LOGIN SETUP */
+
+router.get("/login", (req, res, next) => {
+  res.render("index.hbs");
+});
+
+// test login by nadjie
+router.post("/process-login", (req, res, next) => {
+  const { email, originalPassword } = req.body;
+  User.findOne({
+    email: { $eq: email }
+  })
+    .then(userDoc => {
+      if (!userDoc) {
+        req.flash("error", "Email is incorrect. 🤦🏾‍♂️");
+        res.redirect("/login");
+        return;
+      }
+
+      const { encryptedPassword } = userDoc;
+      if (!bcrypt.compareSync(originalPassword, encryptedPassword)) {
+        req.flash("error", "Password is incorrect. 🤦🏾‍♂️");
+        res.redirect("/login");
+        return;
+      }
+      req.logIn(userDoc, () => {
+        req.flash("success", "Log in success! 😎");
+        res.redirect("/properties");
+      });
+    })
+    .catch(err => next(err));
+});
 
 module.exports = router;
 
