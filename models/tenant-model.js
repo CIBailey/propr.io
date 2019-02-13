@@ -6,13 +6,14 @@ const tenantSchema = new Schema(
   {
     fullName: { type: String, required: true },
     email: { type: String, required: true },
-    peropertyID: {
+    phone: { type: Number, required: true },
+    contactName: { type: String, required: true },
+    contactNumber: { type: Number, required: true },
+    propertyID: {
       type: Schema.Types.ObjectId,
       ref: "property",
       required: true
     }
-    // phone: { type: String, required: true },
-    // pictureUrl: { type: String, required: true, match: /^https?:\/\// }
   },
   {
     timestamps: true

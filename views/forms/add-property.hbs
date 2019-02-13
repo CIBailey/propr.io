@@ -7,20 +7,23 @@
     <div class="form-group">
       <h6><span class="pastille">1</span> ABOUT PROPERTY</h6>
       <label for="formGroupExampleInput">Name</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ex: 1 bedroom apartment" />
+      <input type="text" name="name" class="form-control" id="formGroupExampleInput"
+        placeholder="Ex: 1 bedroom apartment" />
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Description</label>
-      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter address here" />
+      <input type="text" name="description" class="form-control" id="formGroupExampleInput2"
+        placeholder="Sunny flat located in a central..." />
     </div>
 
     <div class="form-group">
       <label for="formGroupExampleInput">Rent Amount</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter renting price here" />
+      <input type="text" name="rentAmount" class="form-control" id="formGroupExampleInput"
+        placeholder="Enter renting price here" />
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput">Feature Photo</label>
-      <input type="file" name="profilePhoto" class="form-control" id="inputPicture" />
+      <input type="file" name="featurePhoto" class="form-control" id="inputPicture" />
     </div>
 
     <h6><span class="pastille">2</span>ADDRESS</h6>
@@ -28,20 +31,25 @@
 
     <div class="form-group">
       <label for="inputAddress">Street Name</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      <input type="text" name="address.street" class="form-control" id="inputAddress" placeholder="1234 Main St">
     </div>
     <div class="form-group">
       <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+      <input type="text" name="address.street2" class="form-control" id="inputAddress2"
+        placeholder="Apartment, studio, or floor">
     </div>
     <div class="form-row">
-      <div class="form-group col-md-8">
+      <div class="form-group col-md-6">
         <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
+        <input type="text" name="address.city" class="form-control" id="inputCity">
       </div>
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-3">
         <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
+        <input type="text" name="address.zipcode" class="form-control" id="inputZip">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputZip">Country</label>
+        <input type="text" name="address.country" class="form-control" id="inputZip">
       </div>
     </div>
 
@@ -92,23 +100,23 @@
     <h6><span class="pastille">4</span>TENANT INFORMATION</h6>
     <div class="form-group">
       <label for="formGroupExampleInput">Full name</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="John Doe" />
+      <input type="text" name="fullName" class="form-control" id="formGroupExampleInput" placeholder="John Doe" />
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Email</label>
-      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter email here" />
+      <input type="text" name="email" class="form-control" id="formGroupExampleInput2" placeholder="Enter email here" />
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput">Phone number</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="+33" />
+      <input type="text" name="phone" class="form-control" id="formGroupExampleInput" placeholder="+33" />
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput">Emergency Contact Name</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Jane Doe" />
+      <input type="text" name="contactName" class="form-control" id="formGroupExampleInput" placeholder="Jane Doe" />
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput">Emergency Contact Number</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="+33" />
+      <input type="text" name="contactNumber" class="form-control" id="formGroupExampleInput" placeholder="+33" />
     </div>
     <a class="btn btn-primary" href="#" role="button">
       Add New Property

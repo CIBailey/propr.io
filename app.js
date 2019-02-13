@@ -52,6 +52,13 @@ app.use(
 
 // we will need partilas later so I put the code here - nadjie
 // hbs.registerPartials(path.join(__dirname, "views", "partials"));
+hbs.registerHelper("navLink", function(route, href, text) {
+  let classes = "nav-item nav-link";
+  if (route === href) {
+    classes += " prop-blue active";
+  }
+  return `<a class="${classes}" href="${href}">${text}</a>`;
+});
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
@@ -77,6 +84,7 @@ app.use((req, res, next) => {
   req.flash();
   res.locals.messages = req.flash();
   res.locals.currentUser = req.user;
+  res.locals.myRoute = req.path;
   next();
 });
 
