@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const fileUploader = require("../config/file-upload.js");
 
-/* SIGNUP SETUP */
+/* SIGNUP Page */
 
 router.get("/signup", (req, res, next) => {
   res.render("forms/signup.hbs");
@@ -69,13 +69,12 @@ router.post(
   }
 );
 
-/* LOGIN SETUP */
+/* LOGIN Page */
 
 router.get("/login", (req, res, next) => {
   res.render("index.hbs");
 });
 
-// test login by nadjie
 router.post("/process-login", (req, res, next) => {
   const { email, originalPassword } = req.body;
   User.findOne({
@@ -104,27 +103,9 @@ router.post("/process-login", (req, res, next) => {
 
 module.exports = router;
 
-/////////////////logout
+/*  LOG OUT page */
 
 router.get("/process-logout", (req, res, next) => {
-  // if (!req.session.currentUser) {
-  //   console.log("zzzzzzzzzzzccccccczzz");
-
-  //   req.flash("success", "Logged out successfully! 🙋‍");
-  //   res.redirect("/");
-  //   return;
-  // }
-
-  // req.session.destroy(err => {
-  //   if (err) {
-  //     console.log(err, "qqqoqoqoqoqoqqqllllllllalalalalalalalalaals");
-  //   } else {
-  //     console.log("gogogogogogogogogogogogo");
-
-  //     res.redirect("/");
-  //   }
-  // });
-
   req.logOut();
   req.flash("success", "Logged out successfully! 🙋‍");
   res.redirect("/");
@@ -133,4 +114,25 @@ router.get("/process-logout", (req, res, next) => {
 /*  ADD PROPERTY page */
 router.get("/add-property", (req, res, next) => {
   res.render("forms/add-property.hbs");
+});
+
+/*  EDIT PROFILE page */
+router.get("/edit-profile", (req, res, next) => {
+  res.render("forms/edit-profile.hbs");
+});
+
+router.post("/process-edit-profile", (req, res, next) => {
+  const { userId } = req.params;
+
+  const { title, rating, description, author } = req.body;
+
+  Book.findByIdAndUpdate(
+    bookId, //three arguments: we want to give the ID of the doc we are updating
+    { $set: { title, rating, description, author } }, //the changes to make to thaat document
+    { runValidators: true } // the additional settings
+  )
+    .then(bookDoc => {
+      res.redirect(`/properties`);
+    })
+    .catch(err => next(err));
 });

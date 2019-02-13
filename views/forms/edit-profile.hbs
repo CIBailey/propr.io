@@ -1,106 +1,67 @@
-<h2>Edit Profile</h2>
-{{!-- route to the middle path request --}}
-<form action="/{{userItem._id}}/process-edit-profile" method="POST" enctype="multipart/form-data">
+<div class="container head-room">
+  <form action="/process-edit-profile" method="POST" enctype="multipart/form-data">
+    {{errorMessage}}
 
-  First Name:
-  <label>
-    <input type="text" name="firstName" value="{{userItem.firstName}}" required />
-  </label>
-  <label>
-    Last Name:
-    <input type="text" name="lastName" value="{{userItem.lastName}}" required />
-  </label>
-  <label>
-    Role:
-    <div class="field-body">
-      <div class="control">
-        <label class="radio">
-          <input type="radio" value="Tenant" despace />
-          Tenant
-        </label>
-        <label class="radio">
-          <input type="radio" value="Landlord" despace />
-          Landlord
-        </label>
-      </div>
-  </label>
-  <label>
-    Email:
-    <input type="email" name="email" value="{{userItem.email}}" required />
-  </label>
-
-  <label>
-    Password:
-    <input type="password" name="originalPassword" value="{{userItem.password}}" required />
-  </label>
-
-  <label>
-    Phone:
-    <input type="string" name="phone" value="{{userItem.phone}}" required />
-  </label>
-
-  <label>
-    Profile Photo:
-    <input type="file" name="profilePhoto" required />
-
-  </label>
-
-  <button>Update</button>
-</form>
-
-
-<div class="container">
-  <form>
-    <h6>Create your profile <a class="cancel" href="#">Cancel</a></h6>
+    <h6>Edit your profile <a class="cancel" href="/properties">Cancel</a></h6>
 
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputFirstName">First name</label>
-        <input type="email" class="form-control" id="inputFirstName" placeholder="First name here" />
+        <input type="text" class="form-control" id="inputFirstName" name="firstName"
+          value="{{currentUser.firstName}}" />
       </div>
+
       <div class="form-group col-md-6">
         <label for="inputLastName">Last name</label>
-        <input type="password" class="form-control" id="inputLastName" placeholder="Last name here" />
+        <input type="text" class="form-control" id="inputLastName" name="lastName" value="{{currentUser.lastName}}" />
       </div>
     </div>
 
-    <div class="form-row">
+    <div class=" form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail">Email</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email here" />
+        <input type="email" class="form-control" id="inputEmail" name="email" value="{{currentUser.email}}" />
       </div>
-      <div class="form-group col-md-6">
+
+      <div class=" form-group col-md-6">
         <label for="inputPhone">Phone</label>
-        <input type="number" class="form-control" id="inputPhone" placeholder="+33" />
+        <input type="number" class="form-control" id="inputPhone" name="phone" value="{{currentUser.phone}}" />
       </div>
     </div>
-    <div class="form-row">
+
+    <div class=" form-row">
       <div class="form-group col-md-6">
         <label for="inputPicture">Profile picture</label>
-        <input type="text" class="form-control" id="inputPicture"
-          placeholder="Need to find a way to upload a picture from computer or phone" />
+        <input type="file" name="profilePhoto" class="form-control" id="inputPicture"
+          value="{{currentUser.profilePicture}}" />
       </div>
+
       <div class="form-group col-md-6">
         <label for="inputRole">Role</label>
-        <select id="inputRole" class="form-control">
+        <select name="role" id="inputRole" class="form-control">
           <option selected>Landlord</option>
           <option>Tenant</option>
         </select>
       </div>
     </div>
+
+    <h6>Change your password </h6>
+
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputNewPassword">New password</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password here" />
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" name="originalPassword"
+          placeholder="Password here" />
       </div>
+
       <div class="form-group col-md-6">
         <label for="inputConfirmPassword">Confirm password</label>
-        <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password here" />
+        <input type="password" class="form-control" id="inputConfirmPassword" name="confirmPassword"
+          placeholder="Confirm Password here" />
       </div>
     </div>
 
-    <a class="btn btn-primary" href="#" role="button">
-      Submit
-    </a>
+    <button class="btn btn-primary">Submit Changes</button>
+
   </form>
 </div>

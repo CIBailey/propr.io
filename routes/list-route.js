@@ -14,4 +14,8 @@ router.get("/tenants", (req, res, next) => {
   res.render("tenants.hbs");
 });
 
+router.get("/payments", (req, res, next) => {
+  res.render("lists/payments.hbs");
+});
+
 module.exports = router;
