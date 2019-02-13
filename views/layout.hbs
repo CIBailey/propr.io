@@ -17,6 +17,8 @@
 
 <body class="body-dashboard">
 
+
+
   <header>
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand"><img src="./images/logo-proprio-noir.png" width="auto" height="40"
@@ -26,13 +28,26 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+
         {{#if currentUser}}
-        <b>{{currentUser.name}}</b>
         <div class="navbar-nav ">
           <a class="nav-item nav-link" href="#">Properties</a>
           <a class="nav-item nav-link" href="#">Tenants</a>
           <a class="nav-item nav-link" href="#">Messages</a>
-          {{else}}
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+              <img src={{currentUser.profilePhoto}} alt="Avatar" class="avatar" />
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="/edit-profile">Edit Profile</a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="/process-logout">Log Out</a>
+              </li>
+            </ul>
+          </div> {{else}}
           {{!-- -------LOGIN  START--}}
           <header>
             <nav class="navbar navbar-expand-lg navbar-light">

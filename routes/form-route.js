@@ -62,7 +62,7 @@ router.post(
         .save()
         .then(() => {
           console.log("User created");
-          res.redirect("/login");
+          res.redirect("/properties");
         })
         .catch(err => next(err));
     });
@@ -107,19 +107,27 @@ module.exports = router;
 /////////////////logout
 
 router.get("/process-logout", (req, res, next) => {
-  if (!req.session.currentUser) {
-    req.flash("success", "Logged out successfully! 🙋‍");
-    res.redirect("/");
-    return;
-  }
+  // if (!req.session.currentUser) {
+  //   console.log("zzzzzzzzzzzccccccczzz");
 
-  req.session.destroy(err => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect("/");
-    }
-  });
+  //   req.flash("success", "Logged out successfully! 🙋‍");
+  //   res.redirect("/");
+  //   return;
+  // }
+
+  // req.session.destroy(err => {
+  //   if (err) {
+  //     console.log(err, "qqqoqoqoqoqoqqqllllllllalalalalalalalalaals");
+  //   } else {
+  //     console.log("gogogogogogogogogogogogo");
+
+  //     res.redirect("/");
+  //   }
+  // });
+
+  req.logOut();
+  req.flash("success", "Logged out successfully! 🙋‍");
+  res.redirect("/");
 });
 
 /*  ADD PROPERTY page */
