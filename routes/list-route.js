@@ -11,11 +11,15 @@ router.get("/properties", (req, res, next) => {
 });
 
 router.get("/tenants", (req, res, next) => {
-  res.render("tenants.hbs");
+  res.render("lists/tenants.hbs");
 });
 
 router.get("/payments", (req, res, next) => {
   res.render("lists/payments.hbs");
+});
+
+router.get("/messages", (req, res, next) => {
+  res.render("lists/messages.hbs");
 });
 
 module.exports = router;

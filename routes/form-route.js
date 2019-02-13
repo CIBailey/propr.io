@@ -116,6 +116,10 @@ router.get("/add-property", (req, res, next) => {
   res.render("forms/add-property.hbs");
 });
 
+router.get("/process-add-property", (req, res, next) => {
+  res.render("forms/add-property.hbs");
+});
+
 /*  EDIT PROFILE page */
 router.get("/edit-profile", (req, res, next) => {
   res.render("forms/edit-profile.hbs");
@@ -123,15 +127,34 @@ router.get("/edit-profile", (req, res, next) => {
 
 router.post("/process-edit-profile", (req, res, next) => {
   const { userId } = req.params;
+  const { firstName, lastName, confirmPassword, role, phone } = req.body;
+  var useremail = req.body.email;
+  const profilePhoto = req.file.secure_url;
+  var userpass = req.body.originalPassword;
 
-  const { title, rating, description, author } = req.body;
-
-  Book.findByIdAndUpdate(
-    bookId, //three arguments: we want to give the ID of the doc we are updating
-    { $set: { title, rating, description, author } }, //the changes to make to thaat document
-    { runValidators: true } // the additional settings
+  User.findByIdAndUpdate(
+    userId,
+    {
+      $push: {
+        firstName,
+        lastName,
+        confirmPassword,
+        role,
+        phone,
+        profilePhoto,
+        email
+      }
+    },
+    { runValidators: true }
   )
-    .then(bookDoc => {
+    .then(userId => {
+      if (useremail === "" || userpass === "") {
+        res.render("forms/signup.hbs", {
+          errorMessage: "Please fill all form fields to sign up."
+        });
+        return;
+      }
+
       res.redirect(`/properties`);
     })
     .catch(err => next(err));

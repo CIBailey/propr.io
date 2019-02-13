@@ -1,52 +1,9 @@
-<h2>Add Property</h2>
-
-<form action="/process-add-property" method="POST" enctype="multipart/form-data">
-  Name:
-  <label>
-    <input type="text" name="name" required />
-  </label>
-  Description:
-  <label>
-    <input type="text" name="description" placeholder="Sunny flat in center ville" required />
-  </label>
-  {{!-- amenities --}}
-  <input type="checkbox" name="amenities" value="electricity"><span>Electricity</span>
-  <input type="checkbox" name="amenities" value="heating"><span>Heating</span>
-  <input type="checkbox" name="amenities" value="water"><span>Water</span>
-  <input type="checkbox" name="amenities" value="elevator"><span>Elevator</span>
-  <input type="checkbox" name="amenities" value="garage"><span>Garage</span>
-  <input type="checkbox" name="amenities" value="kitchenAppliances"><span>Kitchen Appliances</span>
-  <input type="checkbox" name="amenities" value="airConditioning"><span>Air Conditioning</span>
-  Address:
-  <br>
-
-  <label>
-    Street
-    <input type="text" name="address.street" required />
-  </label>
-  <label>
-    State
-    <input type="text" name="address.state" required />
-  </label>
-  <label>
-    Zipcode
-    <input type="text" name="address.zipcode" required />
-  </label>
-  <label>
-    Country
-    <input type="text" name="address.country" required />
-  </label>
-
-  <button>Add Property</button>
-</form>
-
-{{!-- ---------------HTML RICH FORM --}}
 <div class="container">
   <h6>
     <strong>List a new property </strong><a class="cancel" href="/properties">Cancel</a>
   </h6>
 
-  <form class="head-room">
+  <form class="head-room" action="/process-add-property" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <h6><span class="pastille">1</span> ABOUT PROPERTY</h6>
       <label for="formGroupExampleInput">Name</label>
@@ -58,20 +15,81 @@
     </div>
 
     <div class="form-group">
-      <label for="formGroupExampleInput">Price</label>
+      <label for="formGroupExampleInput">Rent Amount</label>
       <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter renting price here" />
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput">URL Picture</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="http://" />
+      <label for="formGroupExampleInput">Feature Photo</label>
+      <input type="file" name="profilePhoto" class="form-control" id="inputPicture" />
+    </div>
+
+    <h6><span class="pastille">2</span>ADDRESS</h6>
+
+
+    <div class="form-group">
+      <label for="inputAddress">Street Name</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput2">Location</label>
-      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter address here" />
+      <label for="inputAddress2">Address 2</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputZip">Zip</label>
+        <input type="text" class="form-control" id="inputZip">
+      </div>
+    </div>
+
+
+
+
+
+
+    <h6><span class="pastille">3</span>AMENITIES</h6>
+
+
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" id="inlineCheckbox1" value="electricity">
+        <label class="form-check-label" for="inlineCheckbox1">Electricity</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" id="inlineCheckbox2" value="heating">
+        <label class="form-check-label" for="inlineCheckbox2">Heating</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" id="inlineCheckbox3" value="water">
+        <label class="form-check-label" for="inlineCheckbox3">Water</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" id="inlineCheckbox3" value="Elevator">
+        <label class="form-check-label" for="inlineCheckbox3">Elevator</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" id="inlineCheckbox1" value="garage">
+        <label class="form-check-label" for="inlineCheckbox1">Garage</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" id="inlineCheckbox2" value="kitchenAppliances">
+        <label class="form-check-label" for="inlineCheckbox2">Kitchen Appliances</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" id="inlineCheckbox3" value="airConditioning">
+        <label class="form-check-label" for="inlineCheckbox3">Air Conditioning</label>
+      </div>
     </div>
   </form>
+
+
   <form>
-    <h6><span class="pastille">2</span>TENANT INFORMATIONS</h6>
+    <h6><span class="pastille">4</span>TENANT INFORMATION</h6>
     <div class="form-group">
       <label for="formGroupExampleInput">Full name</label>
       <input type="text" class="form-control" id="formGroupExampleInput" placeholder="John Doe" />
@@ -93,7 +111,7 @@
       <input type="text" class="form-control" id="formGroupExampleInput" placeholder="+33" />
     </div>
     <a class="btn btn-primary" href="#" role="button">
-      Add new Property
+      Add New Property
     </a>
   </form>
 </div>
