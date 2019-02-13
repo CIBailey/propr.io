@@ -56,7 +56,8 @@ footer img {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: auto; }
+  height: auto;
+  z-index: -2; }
 
 /* -------------------LANDING-PAGE / INDEX--------------------------- */
 #landing-page {
@@ -75,7 +76,7 @@ footer img {
   background-color: rgba(80, 78, 78, 0.5);
   z-index: -1;
   cursor: pointer;
-  background-image: url(./images/landing-page1.jpg);
+  background-image: url(../images/landing-page1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center; }

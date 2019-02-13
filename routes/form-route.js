@@ -26,6 +26,7 @@ router.post("/process-login", (req, res, next) => {
   }
 
   User.findOne({ useremail }, "_id useremail password", (err, user) => {
+    console.log(user, useremail);
     if (err || !user) {
       res.render("index.hbs", { errorMessage: "This account doesn't exist" });
     } else {
