@@ -71,7 +71,7 @@ app.use(
   session({
     saveUninitialized: true,
     resave: true,
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.EXPRESS_APP_SECRET,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
