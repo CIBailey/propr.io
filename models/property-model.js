@@ -11,8 +11,8 @@ const propertySchema = new Schema(
     featurePhoto: { type: String, required: true },
     bedroom: { type: String, required: true },
     bathroom: { type: String, required: true },
-    interiorSize: { type: String, required: true },
-    parking: { type: String, required: true },
+    interiorSize: { type: String },
+    // parking: { type: String, required: true },
     deposit: { type: String, required: true },
 
     amenities: {

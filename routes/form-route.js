@@ -183,14 +183,8 @@ router.post(
       country,
       bedroom,
       bathroom,
-<<<<<<< HEAD
       interiorSize,
-      parking,
-      deposit,
-      amenities
-=======
-      interiorSize
->>>>>>> 5d34ffbe9db6080b761c40f46927ed040bd1f430
+      deposit
     } = req.body;
 
     const featurePhoto = req.file.secure_url;
@@ -204,14 +198,8 @@ router.post(
       bedroom: bedroom,
       bathroom: bathroom,
       interiorSize: interiorSize,
-      parking: parking,
-<<<<<<< HEAD
-      deposit: deposit,
-      amenities: { amenities },
-      address: { street1, street2, city, zipcode, country }
-=======
+      // parking: parking,
       deposit: deposit
->>>>>>> 5d34ffbe9db6080b761c40f46927ed040bd1f430
     });
     console.log(property);
     property
@@ -235,5 +223,17 @@ router.get("/property/:propertyId/edit", checkLandlord, (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+// v v v v  NADJIE CREATE THE BACKEND FOR THE EDIT PROPERTY PROCESS v v v v
+
+router.post(
+  "/process-edit-property",
+  fileUploader.single("profilePhoto"),
+  (req, res, next) => {
+    Property.findByIdAndUpdate()
+      .then(() => res.redirect("/properties"))
+      .catch(err => next(err));
+  }
+);
 
 module.exports = router;
