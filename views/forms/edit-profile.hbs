@@ -2,8 +2,9 @@
 
   <h6>
     <strong>Edit your profile </strong><a class="cancel" href="/properties">Cancel</a>
+    {{errorMessage}}
+
   </h6>
-  {{errorMessage}}
   <form class="head-room">
 
     <form action="/process-edit-profile" method="POST" enctype="multipart/form-data">
