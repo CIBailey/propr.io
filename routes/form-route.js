@@ -175,6 +175,7 @@ router.post(
       name,
       description,
       rentAmount,
+<<<<<<< HEAD
       amenities,
       street1,
       street2,
@@ -186,13 +187,39 @@ router.post(
     console.log("helooooooooooooooo-------", req.body);
 
     const featurePhoto = req.file.secure_url;
+=======
+      featurePhoto,
+      bedroom,
+      bathroom,
+      interiorSize,
+      parking,
+      deposit,
+      amenities,
+      address
+    } = req.body;
+
+    //const featurePhoto = req.file.secure_url;
+    console.log(req.body.address);
+    console.log(street1, street2, city, zipcode, country);
+    // { street1, street2, city, zipcode, country }
+>>>>>>> 116e31fe3611e715d7e9eda220fcd7b98924c0a1
     const property = new Property({
       name: name,
       description: description,
       rentAmount: rentAmount,
+<<<<<<< HEAD
       amenities,
       address: { street1, street2, city, zipcode, country },
       featurePhoto
+=======
+      bedroom: bedroom,
+      bathroom: bathroom,
+      interiorSize: interiorSize,
+      parking: parking,
+      deposit: deposit,
+      amenities: { amenities },
+      address: {}
+>>>>>>> 116e31fe3611e715d7e9eda220fcd7b98924c0a1
     });
     console.log(property);
     property

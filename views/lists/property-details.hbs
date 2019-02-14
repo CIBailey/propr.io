@@ -18,23 +18,21 @@
     <!-- DÉBUT DIV APARTMENT DROITE -->
     <div class="col-8">
       <h3 type="text" class="form-control myLabel1 title">
-        Cozy Apartment 2 Bedrooms
+        {{propertyItem.name}}
       </h3>
-      <textarea rows="6" cols="120" readonly class="form-control-plaintext">
-Orientis vero limes in longum protentus et rectum ab Euphratis fluminis ripis ad usque supercilia porrigitur Nili, laeva Saracenis conterminans gentibus, dextra pelagi fragoribus patens, quam plagam Nicator Seleucus occupatam auxit magnum in modum, cum post Alexandri Macedonis obitum successorio iure teneret regna Persidis, efficaciae inpetrabilis rex, ut indicat cognomentum.Orientis vero limes in longum protentus et rectum ab Euphratis fluminis ripis ad
-          </textarea>
+      <textarea rows="6" cols="120" readonly class="form-control-plaintext"> {{propertyItem.description}} </textarea>
       <div class="row div-right-margin-top">
         <div class="col-lg-4 col-md-4 col-sm-12 bold">
           Bedrooms
         </div>
         <div class="col-lg-2 col-md-2 col-sm-12">
-          2
+          {{propertyItem.bedroom}}
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 bold">
           Bathrooms
         </div>
         <div class="col-lg-2 col-md-2 col-sm-12">
-          2
+          {{propertyItem.bathroom}}
         </div>
       </div>
       <div class="row div-right-margin-top">
@@ -42,13 +40,13 @@ Orientis vero limes in longum protentus et rectum ab Euphratis fluminis ripis ad
           Interior Size
         </div>
         <div class="col-lg-2 col-md-2 col-sm-12">
-          1200 ft
+          {{propertyItem.interiorSize}}
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 bold">
           Parking
         </div>
         <div class="col-lg-2 col-md-2 col-sm-12">
-          yes
+          {{propertyItem.parking}}
         </div>
       </div>
     </div>
@@ -73,23 +71,23 @@ Orientis vero limes in longum protentus et rectum ab Euphratis fluminis ripis ad
     <div class="col-8 myAdress padding0">
       <div class="col-12">
         <h6 class="bold">Address</h6>
-        <p>5656 Boulevard Saint-Joseph East</p>
+        <p>{{propertyItem.address.street1}}</p>
       </div>
       <div class="col-6">
         <h6 class="bold">Country</h6>
-        <p>France</p>
+        <p>{{propertyItem.address.country}}</p>
       </div>
       <div class="col-6">
         <h6 class="bold">City</h6>
-        <p>Paris</p>
+        <p>{{propertyItem.address.city}}</p>
       </div>
       <div class="col-6">
         <h6 class="bold">State</h6>
-        <p>Ile de France</p>
+        <p>{{propertyItem.address.state}}</p>
       </div>
       <div class="col-6">
         <h6 class="bold">Zip Code</h6>
-        <p>75001</p>
+        <p>{{propertyItem.address.zipcode}}</p>
       </div>
     </div>
   </div>
@@ -112,11 +110,11 @@ Orientis vero limes in longum protentus et rectum ab Euphratis fluminis ripis ad
     <div class="col-8 padding0">
       <div class="col-12 d-flex flex-wrap div-right-margin-top">
         <div class="col-6 bold">Monthly Rent</div>
-        <div class="col-6 addPadding30">1200$</div>
+        <div class="col-6 addPadding30">{{propertyItem.rentAmount}}</div>
       </div>
       <div class="col-12 d-flex flex-wrap div-right-margin-top">
         <div class="col-6 bold">Security Deposit</div>
-        <div class="col-6 addPadding30">2400$</div>
+        <div class="col-6 addPadding30">{{propertyItem.deposit}}</div>
       </div>
     </div>
   </div>
@@ -169,6 +167,9 @@ Orientis vero limes in longum protentus et rectum ab Euphratis fluminis ripis ad
       </div>
     </div>
   </div>
+  <a class="btn btn-primary" href="#" role="button">
+    Edit Property
+  </a>
   <!-- ON NE SUPPRIME RIEN APRÈS CETTE LIGNE -->
 </div>
 
