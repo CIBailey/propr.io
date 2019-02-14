@@ -60,10 +60,14 @@ router.post(
 
       newUser
         .save()
-        .then(() => {
-          console.log("User created");
-          res.redirect("/properties");
+        .then(userDoc => {
+          console.log("😎 user created");
+          req.logIn(userDoc, () => {
+            req.flash("success", "Log in success! 😎");
+            res.redirect("/properties");
+          });
         })
+
         .catch(err => next(err));
     });
   }
@@ -111,51 +115,77 @@ router.get("/process-logout", (req, res, next) => {
   res.redirect("/");
 });
 
-/*  ADD PROPERTY page */
-router.get("/add-property", (req, res, next) => {
-  res.render("forms/add-property.hbs");
-});
-
-router.get("/process-add-property", (req, res, next) => {
-  res.render("forms/add-property.hbs");
-});
-
 /*  EDIT PROFILE page */
 router.get("/edit-profile", (req, res, next) => {
   res.render("forms/edit-profile.hbs");
 });
 
-router.post("/process-edit-profile", (req, res, next) => {
-  const { userId } = req.params;
-  const { firstName, lastName, confirmPassword, role, phone } = req.body;
-  var useremail = req.body.email;
-  const profilePhoto = req.file.secure_url;
-  var userpass = req.body.originalPassword;
+// router.post(
+//   "/process-edit-profile",
+//   fileUploader.single("profilePhoto"),
+//   (req, res, next) => {
+//     const { firstName, lastName, email, originalPassword, phone } = req.body;
+//     const profilePhoto = req.file.secure_url;
 
-  User.findByIdAndUpdate(
-    userId,
-    {
-      $push: {
-        firstName,
-        lastName,
-        confirmPassword,
-        role,
-        phone,
-        profilePhoto,
-        email
-      }
-    },
-    { runValidators: true }
-  )
-    .then(userId => {
-      if (useremail === "" || userpass === "") {
-        res.render("forms/signup.hbs", {
-          errorMessage: "Please fill all form fields to sign up."
-        });
-        return;
-      }
+//     User.findByIdAndUpdate(
+//       req.user._id,
+//       { $set: { firstName, lastName, email, originalPassword, phone } },
+//       { runValidators: true }
+//     )
+//       .then(redirect("/properties"))
+//       .catch(err => next(err));
+//   }
+// );
 
-      res.redirect(`/properties`);
-    })
-    .catch(err => next(err));
+// router.put(
+//   "/process-edit-profile",
+//   fileUploader.single("profilePhoto"),
+//   (req, res, next) => {
+//     const { userId } = req.params;
+//     const { firstName, lastName, confirmPassword, role, phone } = req.body;
+//     var useremail = req.body.email;
+//     const profilePhoto = req.file.secure_url;
+//     var userpass = req.body.originalPassword;
+//     console.log(useremail, useremail);
+
+//     if (confirmPassword !== originalPassword) {
+//       res.render("forms/signup.hbs", {
+//         errorMessage: "Please check the spelling of your password."
+//       });
+//       return;
+//     }
+
+//     User.findByIdAndUpdate(
+//       userId,
+//       {
+//         $set: {
+//           firstName,
+//           lastName,
+//           confirmPassword,
+//           role,
+//           phone,
+//           profilePhoto,
+//           email
+//         }
+//       },
+//       { runValidators: true, new: true }
+//     )
+//       .then(userId => {
+//         res.redirect("/properties");
+//       })
+//       .catch(err => next(err));
+//   }
+// );
+
+// /*  ADD PROPERTY page */
+router.get("/add-property", (req, res, next) => {
+  res.render("forms/add-property.hbs");
 });
+
+// router.post("/process-add-property", fileUploader.single("featurePhoto"),(req, res, next) => {
+//   .then(
+//     res.redirect("/properties");
+//   )
+//   .catch(err => next(err));
+
+// });
