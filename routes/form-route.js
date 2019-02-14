@@ -132,62 +132,35 @@ router.get("/edit-profile", checkLandlord, (req, res, next) => {
   res.render("forms/edit-profile.hbs");
 });
 
-// router.post(
-//   "/process-edit-profile",
-//   fileUploader.single("profilePhoto"),
-//   (req, res, next) => {
-//     const { firstName, lastName, email, originalPassword, phone } = req.body;
-//     const profilePhoto = req.file.secure_url;
+router.post(
+  "/process-edit-profile",
+  fileUploader.single("profilePhoto"),
+  (req, res, next) => {
+    const { firstName, lastName, email, originalPassword, phone } = req.body;
+    let profilePhoto = req.user.profilePhoto;
 
-//     User.findByIdAndUpdate(
-//       req.user._id,
-//       { $set: { firstName, lastName, email, originalPassword, phone } },
-//       { runValidators: true }
-//     )
-//       .then(redirect("/properties"))
-//       .catch(err => next(err));
-//   }
-// );
+    if (req.file) {
+      profilePhoto = req.file.secure_url;
+    }
 
-// router.put(
-//   "/process-edit-profile",
-//   fileUploader.single("profilePhoto"),
-//   (req, res, next) => {
-//     const { userId } = req.params;
-//     const { firstName, lastName, confirmPassword, role, phone } = req.body;
-//     var useremail = req.body.email;
-//     const profilePhoto = req.file.secure_url;
-//     var userpass = req.body.originalPassword;
-//     console.log(useremail, useremail);
-
-//     if (confirmPassword !== originalPassword) {
-//       res.render("forms/signup.hbs", {
-//         errorMessage: "Please check the spelling of your password."
-//       });
-//       return;
-//     }
-
-//     User.findByIdAndUpdate(
-//       userId,
-//       {
-//         $set: {
-//           firstName,
-//           lastName,
-//           confirmPassword,
-//           role,
-//           phone,
-//           profilePhoto,
-//           email
-//         }
-//       },
-//       { runValidators: true, new: true }
-//     )
-//       .then(userId => {
-//         res.redirect("/properties");
-//       })
-//       .catch(err => next(err));
-//   }
-// );
+    User.findByIdAndUpdate(
+      req.user._id,
+      {
+        $set: {
+          firstName,
+          lastName,
+          email,
+          originalPassword,
+          phone,
+          profilePhoto
+        }
+      },
+      { runValidators: true }
+    )
+      .then(() => res.redirect("/properties"))
+      .catch(err => next(err));
+  }
+);
 
 // /*  ADD PROPERTY page */
 router.get("/add-property", checkLandlord, (req, res, next) => {
@@ -198,18 +171,28 @@ router.post(
   "/process-add-property",
   fileUploader.single("featurePhoto"),
   (req, res, next) => {
-    const { name, description, rentAmount, amenities, address } = req.body;
+    const {
+      name,
+      description,
+      rentAmount,
+      amenities,
+      street1,
+      street2,
+      city,
+      zipcode,
+      country
+    } = req.body;
+
+    console.log("helooooooooooooooo-------", req.body);
 
     const featurePhoto = req.file.secure_url;
-    console.log(req.body.address);
-    console.log(street1, street2, city, zipcode, country);
-    // { street1, street2, city, zipcode, country }
     const property = new Property({
       name: name,
       description: description,
       rentAmount: rentAmount,
-      amenities: { amenities },
-      address
+      amenities,
+      address: { street1, street2, city, zipcode, country },
+      featurePhoto
     });
     console.log(property);
     property
@@ -221,3 +204,9 @@ router.post(
       .catch(err => next(err));
   }
 );
+
+// /*  EDIT PROPERTY page */
+
+router.get("/property/:propertyId/edit", checkLandlord, (req, res, next) => {
+  res.render("forms/edit-property.hbs");
+});

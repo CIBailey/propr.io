@@ -7,7 +7,7 @@ const propertySchema = new Schema(
     // document structure & rules definde here
     name: { type: String, required: true },
     description: { type: String, required: true },
-    rentAmount: { type: Number, required: true },
+    rentAmount: { type: String, required: true },
     featurePhoto: { type: String, required: true },
 
     amenities: {

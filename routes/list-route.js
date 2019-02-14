@@ -20,7 +20,6 @@ function checkRoles(role) {
 router.get("/properties", checkLandlord, (req, res, next) => {
   Property.find()
     .then(propertyResults => {
-      //send the databse query results to the HBS file as book array
       res.locals.propertyArray = propertyResults;
       res.render("lists/properties.hbs");
     })

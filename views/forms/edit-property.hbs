@@ -1,0 +1,21 @@
+<h2>Edit Property</h2>
+
+<form action="/book/{{bookItem._id}}/process-edit" method="POST">
+  <label>
+    Title:
+    <input type="text" name="title" value="{{bookItem.title}}" placeholder="" required />
+  </label>
+  <label>
+    Author:
+    <input type="text" name="author" value="{{bookItem.author}}" placeholder="" required />
+  </label>
+  <label>
+    Description:
+    <input type="text" name="description" value="{{bookItem.description}}" placeholder="" required minlength="8" />
+  </label>
+  <label>
+    Rating:
+    <input type="text" name="rating" value="{{bookItem.rating}}" placeholder="" min="0" max="10">
+  </label>
+  <button>Save Changes</button>
+</form>
