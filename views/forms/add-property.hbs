@@ -31,25 +31,25 @@
 
     <div class="form-group">
       <label for="inputAddress">Street Name</label>
-      <input type="text" name="address.street" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      <input type="text" name="street1" class="form-control" id="inputAddress" placeholder="1234 Main St">
     </div>
     <div class="form-group">
       <label for="inputAddress2">Address 2</label>
-      <input type="text" name="address.street2" class="form-control" id="inputAddress2"
+      <input type="text" name="street2" class="form-control" id="inputAddress2"
         placeholder="Apartment, studio, or floor">
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputCity">City</label>
-        <input type="text" name="address.city" class="form-control" id="inputCity">
+        <input type="text" name="city" class="form-control" id="inputCity">
       </div>
       <div class="form-group col-md-3">
         <label for="inputZip">Zip</label>
-        <input type="text" name="address.zipcode" class="form-control" id="inputZip">
+        <input type="text" name="zipcode" class="form-control" id="inputZip">
       </div>
       <div class="form-group col-md-3">
         <label for="inputZip">Country</label>
-        <input type="text" name="address.country" class="form-control" id="inputZip">
+        <input type="text" name="country" class="form-control" id="inputZip">
       </div>
     </div>
 
@@ -93,10 +93,14 @@
         <label class="form-check-label" for="inlineCheckbox3">Air Conditioning</label>
       </div>
     </div>
+
+    <button class="btn btn-primary" role="button">
+      Add New Property
+    </button>
   </form>
 
 
-  <form>
+  <form class="head-room" action="/process-add-tenant" method="POST" enctype="multipart/form-data">
     <h6><span class="pastille">4</span>TENANT INFORMATION</h6>
     <div class="form-group">
       <label for="formGroupExampleInput">Full name</label>
@@ -118,8 +122,8 @@
       <label for="formGroupExampleInput">Emergency Contact Number</label>
       <input type="text" name="contactNumber" class="form-control" id="formGroupExampleInput" placeholder="+33" />
     </div>
-    <a class="btn btn-primary" href="#" role="button">
-      Add New Property
-    </a>
+    <button class="btn btn-primary" role="button">
+      Add New Tenant
+    </button>
   </form>
 </div>
