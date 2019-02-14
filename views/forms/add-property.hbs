@@ -12,8 +12,10 @@
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Description</label>
-      <input type="text" name="description" class="form-control" id="formGroupExampleInput2"
-        placeholder="Sunny flat located in a central..." />
+      <div class="form-group">
+        <textarea type="text" name="description" class="form-control" rows="3"
+          placeholder="Sunny flat located in a central..."></textarea>
+      </div>
     </div>
 
     <div class="form-group">
@@ -21,9 +23,40 @@
       <input type="text" name="rentAmount" class="form-control" id="formGroupExampleInput"
         placeholder="Enter renting price here" />
     </div>
+
     <div class="form-group">
-      <label for="formGroupExampleInput">Feature Photo</label>
-      <input type="file" name="featurePhoto" class="form-control" id="inputPicture" />
+      <label for="exampleFormControlFile1">Feature Photo</label>
+      <input type="file" name="featurePhoto" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputDeposit">Security Deposit</label>
+        <input type="number" name="deposit" class="form-control" id="inputEmail4" placeholder="Ex: 2400$">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputSize">Interior Size</label>
+        <input type="number" name="interiorSize" class="form-control" id="inputSize" placeholder="Ex: 80 m2">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="inputBedroom">Bedrooms</label>
+        <input type="text" name="bedroom" class="form-control" id="inputCity">
+      </div>
+      <div class="form-group col-md-5">
+        <label for="inputBathroom">Bathrooms</label>
+        <input type="text" name="bathroom" class="form-control" id="inputBathroom">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputParking">Parking</label>
+        <select id="inputParking" name="parking" class="form-control">
+          <option selected>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
     </div>
 
     <h6><span class="pastille">2</span>ADDRESS</h6>

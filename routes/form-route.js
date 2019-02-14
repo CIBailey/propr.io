@@ -208,8 +208,7 @@ router.post(
       interiorSize,
       parking,
       deposit,
-      amenities,
-      address
+      amenities
     } = req.body;
 
     //const featurePhoto = req.file.secure_url;
@@ -226,7 +225,7 @@ router.post(
       parking: parking,
       deposit: deposit,
       amenities: { amenities },
-      address: {}
+      address: { street1, street2, city, zipcode, country }
     });
     console.log(property);
     property

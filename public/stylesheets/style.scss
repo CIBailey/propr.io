@@ -3,6 +3,14 @@
   padding: 0;
 }
 
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100vh;
+}
+
 /* -------------------NAVS--------------------------- */
 
 /* NAV */
@@ -59,9 +67,10 @@ ul li a {
 /* -------------------FOOTER--------------------------- */
 
 footer {
-  position: relative;
+  position: fixed;
   height: 100px;
-  margin-top: 250px;
+  margin: 0px;
+  bottom: 0;
 }
 
 footer p {
