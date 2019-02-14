@@ -18,7 +18,13 @@ function checkRoles(role) {
 }
 
 router.get("/properties", checkLandlord, (req, res, next) => {
-  res.render("lists/properties.hbs");
+  Property.find()
+    .then(propertyResults => {
+      //send the databse query results to the HBS file as book array
+      res.locals.propertyArray = propertyResults;
+      res.render("lists/properties.hbs");
+    })
+    .catch(err => next(err));
 });
 
 router.get("/tenants", checkLandlord, (req, res, next) => {
