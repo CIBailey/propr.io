@@ -7,7 +7,7 @@
     <div class="col-4">
       <div class="d-flex flex-row div-left-top">
         <div class="p-2">
-          <img src="./images/home.svg" />
+          <img src="/images/home.svg" />
         </div>
         <div class="p-2">
           <p>The apartment</p>
@@ -57,7 +57,7 @@
     <div class="col-4">
       <div class="d-flex flex-row">
         <div class="p-2">
-          <img src="./images/map-pin.svg" />
+          <img src="/images/map-pin.svg" />
         </div>
         <div class="p-2">
           <p>Address</p>
@@ -97,7 +97,7 @@
     <div class="col-4">
       <div class="d-flex flex-row">
         <div class="p-2">
-          <img src="./images/dollar-sign.svg" />
+          <img src="/images/dollar-sign.svg" />
         </div>
         <div class="p-2">
           <p>Lease</p>
@@ -124,7 +124,7 @@
     <div class="col-4">
       <div class="d-flex flex-row">
         <div class="p-2">
-          <img src="./images/plus-circle.svg" />
+          <img src="/images/plus-circle.svg" />
         </div>
         <div class="p-2">
           <p>Amenities</p>
@@ -136,41 +136,19 @@
     <!-- DEBUT MI-DIV AMENITIES DROITE -->
     <div class="col-8 addPadding30">
       <div class="form-check addTopPadding myWrap">
-        <div class="col-lg-4 col-md-4 col-sm-12">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1">Electricity</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 div-right-margin-top">
-          <input type="checkbox" class="form-check-input" id="exampleCheck2" />
-          <label class="form-check-label" for="exampleCheck1">Heating</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 div-right-margin-top">
-          <input type="checkbox" class="form-check-input" id="exampleCheck3" />
-          <label class="form-check-label" for="exampleCheck1">Water</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 div-right-margin-top">
-          <input type="checkbox" class="form-check-input" id="exampleCheck4" />
-          <label class="form-check-label" for="exampleCheck1">Elevator</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 div-right-margin-top">
-          <input type="checkbox" class="form-check-input" id="exampleCheck5" />
-          <label class="form-check-label" for="exampleCheck1">Garage</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 div-right-margin-top">
-          <input type="checkbox" class="form-check-input" id="exampleCheck6" />
-          <label class="form-check-label" for="exampleCheck1">A/C</label>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 div-right-margin-top">
-          <input type="checkbox" class="form-check-input" id="exampleCheck7" />
-          <label class="form-check-label div-right-margin-top" for="exampleCheck1">Kitchen Appliances</label>
+        <div {{!-- class= --}} {{!-- "col-lg-4 col-md-4 col-sm-12" --}}>
+
+          {{#each propertyItem.amenities}}
+          {{this}} &nbsp;
+          {{/each}}
+
+
         </div>
       </div>
     </div>
   </div>
-  <a class="btn btn-primary" href="#" role="button">
+  <a class="btn btn-primary" href=/property/{{propertyItem._id}}/edit role="button">
     Edit Property
   </a>
   <!-- ON NE SUPPRIME RIEN APRÈS CETTE LIGNE -->
 </div>
-
-"/property/{{this._id}}/edit"
