@@ -140,6 +140,9 @@ form h6 {
 .body-dashboard {
   background-color: #fff; }
 
+.button {
+  margin: auto !important; }
+
 .card {
   box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.1); }
 
@@ -172,6 +175,10 @@ p.p-address {
 .row .btn-add-prop {
   margin-top: 35px;
   right: 0; }
+
+.signup {
+  align-content: center;
+  border: 0; }
 
 /*---------------------------*/
 @media (max-width: 575.98px) {

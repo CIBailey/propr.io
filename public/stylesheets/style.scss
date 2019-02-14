@@ -212,6 +212,11 @@ p.p-address {
   right: 0;
 }
 
+.signup {
+  align-content: center;
+  border: red($color: #000000);
+}
+
 /*---------------------------*/
 @media (max-width: 575.98px) {
   .navbar-light .navbar-brand {
