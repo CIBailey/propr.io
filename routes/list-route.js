@@ -39,13 +39,13 @@ router.get("/messages", checkLandlord, (req, res, next) => {
 });
 
 router.get("/property/:propertyId", (req, res, next) => {
-  res.send(req.params);
+  // res.send(req.params);
   const { propertyId } = req.params;
   Property.findById(propertyId)
 
     .then(propertyDoc => {
       res.locals.propertyItem = propertyDoc;
-      res.render("property-details.hbs");
+      res.render("lists/property-details.hbs");
     })
     .catch(err => next(err));
 });

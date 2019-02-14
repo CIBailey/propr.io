@@ -186,8 +186,6 @@ router.post(
       interiorSize
     } = req.body;
 
-    console.log("helooooooooooooooo-------", req.body);
-
     const featurePhoto = req.file.secure_url;
     const property = new Property({
       name: name,
@@ -216,5 +214,13 @@ router.post(
 // /*  EDIT PROPERTY page */
 
 router.get("/property/:propertyId/edit", checkLandlord, (req, res, next) => {
-  res.render("forms/edit-property.hbs");
+  const { propertyID } = req.params;
+  Property.findById(propertyID)
+    .then(propertyDoc => {
+      res.locals.propertyItem = propertyDoc;
+      res.render("forms/edit-property.hbs");
+    })
+    .catch(err => next(err));
 });
+
+module.exports = router;
