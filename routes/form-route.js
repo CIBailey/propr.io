@@ -198,9 +198,21 @@ router.post(
   "/process-add-property",
   fileUploader.single("featurePhoto"),
   (req, res, next) => {
-    const { name, description, rentAmount, amenities, address } = req.body;
+    const {
+      name,
+      description,
+      rentAmount,
+      featurePhoto,
+      bedroom,
+      bathroom,
+      interiorSize,
+      parking,
+      deposit,
+      amenities,
+      address
+    } = req.body;
 
-    const featurePhoto = req.file.secure_url;
+    //const featurePhoto = req.file.secure_url;
     console.log(req.body.address);
     console.log(street1, street2, city, zipcode, country);
     // { street1, street2, city, zipcode, country }
@@ -208,8 +220,13 @@ router.post(
       name: name,
       description: description,
       rentAmount: rentAmount,
+      bedroom: bedroom,
+      bathroom: bathroom,
+      interiorSize: interiorSize,
+      parking: parking,
+      deposit: deposit,
       amenities: { amenities },
-      address
+      address: {}
     });
     console.log(property);
     property

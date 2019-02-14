@@ -9,6 +9,11 @@ const propertySchema = new Schema(
     description: { type: String, required: true },
     rentAmount: { type: Number, required: true },
     featurePhoto: { type: String, required: true },
+    bedroom: { type: Number, required: true },
+    bathroom: { type: Number, required: true },
+    interiorSize: { type: Number, required: true },
+    parking: { type: String, required: true },
+    deposit: { type: Number, required: true },
 
     amenities: {
       type: Array
