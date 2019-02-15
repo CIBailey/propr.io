@@ -8,7 +8,7 @@ html {
 body {
   min-height: 100vh;
   position: relative;
-  padding-bottom: 300px; }
+  padding-bottom: 400px; }
 
 /* -------------------NAVS--------------------------- */
 /* NAV */
@@ -279,7 +279,7 @@ p.p-address {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 580px; }
+    height: 750px; }
 
 #tenants {
   padding-top: 20px; }
@@ -288,7 +288,7 @@ p.p-address {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 590px; }
+    height: 750px; }
 
 #msg {
   padding-top: 20px; }
@@ -297,6 +297,6 @@ p.p-address {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 590px; }
+    height: 750px; }
 
 /*# sourceMappingURL=style.css.map */
