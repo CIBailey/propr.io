@@ -8,7 +8,9 @@ html {
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 300px;
 }
 
 /* -------------------NAVS--------------------------- */
@@ -107,7 +109,7 @@ footer img {
   background-color: rgba(80, 78, 78, 0.5);
   z-index: -1;
   cursor: pointer;
-  background-image: url(../images/landing-page1.jpg);
+  background-image: url(/images/landing-page1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -139,6 +141,10 @@ form {
 form h6 {
   margin-top: 10px;
   padding-bottom: 20px;
+}
+
+.container {
+  overflow: auto;
 }
 
 .container .cancel {
@@ -312,7 +318,7 @@ p.p-address {
 }
 
 .hero {
-  background-image: url("./images/property1.jpg");
+  background-image: url(/images/property1.jpg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position-y: -933.5px;
@@ -328,7 +334,7 @@ p.p-address {
     padding-left: 0;
   }
   .body-index {
-    background-image: url(./images/home-landing.jpg);
+    background-image: url(/images/home-landing.jpg);
     background-repeat: no-repeat;
     width: 100%;
     height: auto;
@@ -341,7 +347,7 @@ p.p-address {
 #payment {
   padding-top: 20px;
   .payment {
-    background-image: url(../images/payment-record-img.png);
+    background-image: url(/images/payment-record-img.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -352,7 +358,7 @@ p.p-address {
 #tenants {
   padding-top: 20px;
   .tenants {
-    background-image: url(../images/tenants-list-img.png);
+    background-image: url(/images/tenants-list-img.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -363,7 +369,7 @@ p.p-address {
 #msg {
   padding-top: 20px;
   .msg {
-    background-image: url(../images/messages-img.png);
+    background-image: url(/images/messages-img.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
