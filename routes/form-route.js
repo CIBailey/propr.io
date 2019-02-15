@@ -198,7 +198,7 @@ router.post(
       bedroom: bedroom,
       bathroom: bathroom,
       interiorSize: interiorSize,
-      // parking: parking,
+      parking: parking,
       deposit: deposit
     });
     console.log(property);

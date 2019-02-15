@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 
 const propertySchema = new Schema(
   {
-    // document structure & rules definde here
     name: { type: String, required: true },
     description: { type: String, required: true },
     rentAmount: { type: String, required: true },
@@ -12,7 +11,7 @@ const propertySchema = new Schema(
     bedroom: { type: String, required: true },
     bathroom: { type: String, required: true },
     interiorSize: { type: String },
-    // parking: { type: String, required: true },
+    parking: { type: String, required: true },
     deposit: { type: String, required: true },
 
     amenities: {
