@@ -52,12 +52,6 @@ ul li a {
   text-align: center; }
 
 /* -------------------FOOTER--------------------------- */
-footer {
-  position: fixed;
-  height: 100px;
-  margin: 0px;
-  bottom: 0; }
-
 footer p {
   position: absolute;
   bottom: 0;
@@ -186,8 +180,13 @@ p.p-address {
   margin-top: 170px; }
 
 .row .btn-add-prop {
-  margin-top: 35px;
   right: 0; }
+
+.myBtn {
+  margin: 0; }
+
+.wrapper-add-new {
+  margin-top: 20px; }
 
 /*--------------------PROPERTY DETAILS-----------------------*/
 .div-right-margin-top {
@@ -267,5 +266,32 @@ p.p-address {
     height: auto; }
   footer p {
     margin-left: 50px; } }
+
+#payment {
+  padding-top: 20px; }
+  #payment .payment {
+    background-image: url(../images/payment-record-img.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 580px; }
+
+#tenants {
+  padding-top: 20px; }
+  #tenants .tenants {
+    background-image: url(../images/tenants-list-img.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 590px; }
+
+#msg {
+  padding-top: 20px; }
+  #msg .msg {
+    background-image: url(../images/messages-img.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 590px; }
 
 /*# sourceMappingURL=style.css.map */

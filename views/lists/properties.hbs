@@ -3,37 +3,35 @@
     <div class="h3-list col-6">
       <h3>{{currentUser.firstName}}'s properties</h3>
     </div>
-    {{!-- <div class="btn-add-prop col-6"> --}}
-    <a class="btn  btn-primary float-right" href="/add-property" role="button">
-      Add new
-    </a>
-  </div>
-
-  <div class="container">
-
-
-    {{#each propertyArray}}
-    <div class="row card">
-      <img src="{{this.featurePhoto}}" class="col-6 card-img" />
-
-      <div class="card-body col-6">
-        <h5 class="card-title">{{this.name}}</h5>
-        <p class="card-text p-address">
-          <i class="fas fa-map-marker-alt"></i>
-          {{this.address.street1}}, {{this.address.street2}}<br>
-          {{this.address.city}} {{this.address.zipcode}}, {{this.address.country}}
-
-
-
-        </p>
-        <a href="/property/{{this._id}}">See Property Details</a>
-
-        <p class="card-text head-room-text">
-          <strong class="align-text-bottom float-right">{{this.rentAmount}}</strong>
-        </p>
-      </div>
+    <div class="btn-add-prop col-6">
+      <a class="btn  btn-primary float-right myBtn" href="/add-property" role="button">
+        Add new
+      </a>
     </div>
-    {{/each}}
 
+    <div class="container">
+
+      {{#each propertyArray}}
+
+      <div class="row card">
+        <img src="{{this.featurePhoto}}" class="col-6 card-img" />
+        <div class="card-body col-6">
+          <h5 class="card-title">{{this.name}}</h5>
+          <p class="card-text p-address">
+            <i class="fas fa-map-marker-alt"></i>{{this.address.street1}}, {{this.address.street2}}
+            {{this.address.city}} {{this.address.zipcode}}, {{this.address.country}}
+          </p>
+          <p class="card-text head-room-text">
+            <small class="text-muted align-text-bottom float-left"><a href="/property/{{this._id}}">See Property
+                Details</a></small>
+            <strong class="align-text-bottom float-right">{{this.rentAmount}}</strong>
+          </p>
+        </div>
+      </div>
+
+      {{/each}}
+
+    </div>
   </div>
+
 </div>
