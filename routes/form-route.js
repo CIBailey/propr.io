@@ -200,9 +200,7 @@ router.post(
       bathroom: bathroom,
       interiorSize: interiorSize,
       parking: parking,
-      deposit: deposit,
-      amenities: { amenities },
-      address: { street1, street2, city, zipcode, country }
+      deposit: deposit
     });
     console.log(property);
     property
