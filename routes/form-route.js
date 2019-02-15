@@ -200,7 +200,8 @@ router.post(
       bathroom: bathroom,
       interiorSize: interiorSize,
       parking: parking,
-      deposit: deposit
+      deposit: deposit,
+      userId: req.user._id
     });
     console.log(property);
     property
@@ -216,8 +217,8 @@ router.post(
 // /*  EDIT PROPERTY page */
 
 router.get("/property/:propertyId/edit", checkLandlord, (req, res, next) => {
-  const { propertyID } = req.params;
-  Property.findById(propertyID)
+  const { propertyId } = req.params;
+  Property.findById(propertyId)
     .then(propertyDoc => {
       res.locals.propertyItem = propertyDoc;
       res.render("forms/edit-property.hbs");
@@ -225,13 +226,53 @@ router.get("/property/:propertyId/edit", checkLandlord, (req, res, next) => {
     .catch(err => next(err));
 });
 
-// v v v v  NADJIE CREATE THE BACKEND FOR THE EDIT PROPERTY PROCESS v v v v
 
 router.post(
   "/process-edit-property",
   fileUploader.single("profilePhoto"),
   (req, res, next) => {
-    Property.findByIdAndUpdate()
+  const {
+      name,
+      description,
+      rentAmount,
+      amenities,
+      street1,
+      street2,
+      city,
+      zipcode,
+      country,
+      bedroom,
+      bathroom,
+      interiorSize,
+      parking,
+      deposit
+    } = req.body;
+    let featurePhoto = req.user.featurePhoto;
+    if (req.file) {
+      profilePhoto = req.file.secure_url;
+    }
+
+    Property.findByIdAndUpdate(req.property._id,
+    {
+        $set: {
+          name,
+      description,
+      rentAmount,
+      amenities,
+      street1,
+      street2,
+      city,
+      zipcode,
+      country,
+      bedroom,
+      bathroom,
+      interiorSize,
+      parking,
+      deposit
+        }
+      },
+      { runValidators: true }
+    )
       .then(() => res.redirect("/properties"))
       .catch(err => next(err));
   }

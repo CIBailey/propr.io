@@ -9,7 +9,7 @@ const tenantSchema = new Schema(
     phone: { type: Number, required: true },
     contactName: { type: String, required: true },
     contactNumber: { type: Number, required: true },
-    propertyID: {
+    propertyId: {
       type: Schema.Types.ObjectId,
       ref: "property",
       required: true

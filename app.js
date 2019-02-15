@@ -50,6 +50,11 @@ app.use(
   })
 );
 
+///images 
+
+app.use(express.static('public/images')); 
+
+
 // we will need partilas later so I put the code here - nadjie
 // hbs.registerPartials(path.join(__dirname, "views", "partials"));
 hbs.registerHelper("navLink", function(route, href, text) {
@@ -103,5 +108,7 @@ app.use("/", list);
 
 const other = require("./routes/other-route.js");
 app.use("/", other);
+
+
 
 module.exports = app;

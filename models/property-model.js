@@ -24,7 +24,10 @@ const propertySchema = new Schema(
       city: { type: String, required: true },
       zipcode: { type: String, required: true },
       country: { type: String, required: true }
-    }
+    },
+    userId: {type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true}
   },
 
   {
