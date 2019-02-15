@@ -227,4 +227,16 @@ router.get("/property/:propertyId/edit", checkLandlord, (req, res, next) => {
     .catch(err => next(err));
 });
 
+// v v v v  NADJIE CREATE THE BACKEND FOR THE EDIT PROPERTY PROCESS v v v v
+
+router.post(
+  "/process-edit-property",
+  fileUploader.single("profilePhoto"),
+  (req, res, next) => {
+    Property.findByIdAndUpdate()
+      .then(() => res.redirect("/properties"))
+      .catch(err => next(err));
+  }
+);
+
 module.exports = router;

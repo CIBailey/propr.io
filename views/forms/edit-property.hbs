@@ -1,21 +1,159 @@
-<h2>Edit Property</h2>
+<div class="container">
+  <h6>
+    <strong>Edit property </strong><a class="cancel" href="/properties">Cancel</a>
+  </h6>
 
-<form action="/book/{{bookItem._id}}/process-edit" method="POST">
-  <label>
-    Title:
-    <input type="text" name="title" value="{{bookItem.title}}" placeholder="" required />
-  </label>
-  <label>
-    Author:
-    <input type="text" name="author" value="{{bookItem.author}}" placeholder="" required />
-  </label>
-  <label>
-    Description:
-    <input type="text" name="description" value="{{bookItem.description}}" placeholder="" required minlength="8" />
-  </label>
-  <label>
-    Rating:
-    <input type="text" name="rating" value="{{bookItem.rating}}" placeholder="" min="0" max="10">
-  </label>
-  <button>Save Changes</button>
-</form>
+  <form class="head-room" action="/process-edit-property" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <h6><span class="pastille">1</span> ABOUT PROPERTY</h6>
+      <label for="formGroupExampleInput">Name</label>
+      <input value="{{propertyItem.name}}" type="text" name="name" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Description</label>
+      <div class="form-group">
+        <textarea type="text" name="description" class="form-control" value="{{propertyItem.description}}"
+          rows="3"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="formGroupExampleInput">Rent Amount</label>
+      <input type="text" name="rentAmount" class="form-control" value="{{propertyItem.rentAmount}}" />
+    </div>
+
+    <div class=" form-group">
+      <label for="exampleFormControlFile1">Feature Photo</label>
+      <input type="file" name="featurePhoto" class="form-control-file" value="{{propertyItem.featurePhoto}}" />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputDeposit">Security Deposit</label>
+        <input type="number" name="deposit" class="form-control" value="{{propertyItem.deposit}}">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputSize">Interior Size</label>
+        <input type="number" name="interiorSize" class="form-control" value="{{propertyItem.interiorSize}}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="inputBedroom">Bedrooms</label>
+        <input value="{{propertyItem.bedroom}}" type="text" name="bedroom" class="form-control">
+      </div>
+      <div class="form-group col-md-5">
+        <label for="inputBathroom">Bathrooms</label>
+        <input value="{{propertyItem.bathroom}}" type="text" name="bathroom" class="form-control">
+      </div>
+      {{!-- <div class="form-group col-md-2">
+        <label for="inputParking">Parking</label>
+        <select id="inputParking" name="parking" class="form-control">
+          <option selected>Yes</option>
+          <option>No</option>
+        </select>
+      </div> --}}
+
+    </div>
+
+    <h6><span class="pastille">2</span>ADDRESS</h6>
+
+
+    <div class="form-group">
+      <label for="inputAddress">Street Name</label>
+      <input value="{{propertyItem.street1}}" type="text" name="street1" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Address 2</label>
+      <input value="{{propertyItem.street2}}" type="text" name="street2" class="form-control">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input value="{{propertyItem.city}}" type="text" name="city" class="form-control">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputZip">Zip</label>
+        <input value="{{propertyItem.zipcode}}" type="text" name="zipcode" class="form-control">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputZip">Country</label>
+        <input value="{{propertyItem.country}}" type="text" name="country" class="form-control">
+      </div>
+    </div>
+
+
+
+
+
+
+    <h6><span class="pastille">3</span>AMENITIES</h6>
+
+
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" value="electricity">
+        <label class="form-check-label" for="inlineCheckbox1">Electricity</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" value="heating">
+        <label class="form-check-label" for="inlineCheckbox2">Heating</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" value="water">
+        <label class="form-check-label" for="inlineCheckbox3">Water</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" value="elevator">
+        <label class="form-check-label" for="inlineCheckbox4">Elevator</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" value="garage">
+        <label class="form-check-label" for="inlineCheckbox5">Garage</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" value="Kitchen Appliances">
+        <label class="form-check-label" for="inlineCheckbox6">Kitchen Appliances</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" name="amenities" type="checkbox" value="Air Conditioning">
+        <label class="form-check-label" for="inlineCheckbox7">Air Conditioning</label>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" role="button">
+      Edit Property
+    </button>
+  </form>
+
+
+  <form class="head-room" action="/process-add-tenant" method="POST" enctype="multipart/form-data">
+    <h6><span class="pastille">4</span>TENANT INFORMATION</h6>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Full name</label>
+      <input type="text" name="fullName" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Email</label>
+      <input type="text" name="email" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Phone number</label>
+      <input type="text" name="phone" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Emergency Contact Name</label>
+      <input type="text" name="contactName" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Emergency Contact Number</label>
+      <input type="text" name="contactNumber" class="form-control" />
+    </div>
+    <button class="btn btn-primary" role="button">
+      Edit Tenant
+    </button>
+  </form>
+</div>
