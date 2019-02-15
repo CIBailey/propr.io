@@ -184,6 +184,7 @@ router.post(
       bedroom,
       bathroom,
       interiorSize,
+      parking,
       deposit
     } = req.body;
 
