@@ -66,12 +66,12 @@ ul li a {
 }
 /* -------------------FOOTER--------------------------- */
 
-footer {
-  position: fixed;
-  height: 100px;
-  margin: 0px;
-  bottom: 0;
-}
+// footer {
+//   position: absolute;
+//   height: 100px;
+//   width: 100%;
+//   bottom: 0;
+// }
 
 footer p {
   position: absolute;
@@ -229,8 +229,15 @@ p.p-address {
 }
 
 .row .btn-add-prop {
-  margin-top: 35px;
   right: 0;
+}
+
+.myBtn {
+  margin: 0;
+}
+
+.wrapper-add-new {
+  margin-top: 20px;
 }
 
 /*--------------------PROPERTY DETAILS-----------------------*/
@@ -328,5 +335,38 @@ p.p-address {
   }
   footer p {
     margin-left: 50px;
+  }
+}
+
+#payment {
+  padding-top: 20px;
+  .payment {
+    background-image: url(../images/payment-record-img.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 580px;
+  }
+}
+
+#tenants {
+  padding-top: 20px;
+  .tenants {
+    background-image: url(../images/tenants-list-img.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 590px;
+  }
+}
+
+#msg {
+  padding-top: 20px;
+  .msg {
+    background-image: url(../images/messages-img.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 590px;
   }
 }
