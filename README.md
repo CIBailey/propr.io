@@ -2,4 +2,4 @@
 
 Project #2 during Ironhack Bootcamp.
 
-Project mounted: https://propr-io.herokuapp.com/
+Project deployed here: https://propr-io.herokuapp.com/
